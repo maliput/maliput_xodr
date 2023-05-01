@@ -15,14 +15,19 @@ pip install empy
 
 
 ### Straight Forward
-Options:
- - `WIDTH`: Width of the lanes(default 3m)
+Description:
+ - 200m road.
+ - Two lanes with opposite direction.
 
-For using this template simply execute:
+
+Options:
+ - `CROSSWALK`: Adds a 2m-width crosswalk in the middle(s=100m).(default=`False`)
+ - `WIDTH`: Width of the lanes(default 3m).
+
+For generating a XODR file by using this template simply execute:
 
 ```sh
-WIDTH=5 empy3 templates/straight_forward.xml.em > generated_file.xodr
+CROSSWALK=True WIDTH=4 empy3 templates/straight_forward.xml.em > generated_file.xodr
 ```
 
-Generated files are provided under the `resources` folder. 
-
+Also, example files with different values are provided under the `resources` folder. 
