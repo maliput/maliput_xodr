@@ -33,7 +33,7 @@
  Map generated using:
   - WIDTH: 3.5
   - RADIUS: 8.0
-  - CROSSWALK: False
+  - CROSSWALK: True
   - CROSSWALK_LENGTH: 2.0
 -->
 <OpenDRIVE>
@@ -280,6 +280,46 @@
             </laneSection>
         </lanes>
         <objects>
+            <object type="crosswalk" id="0" s="0.0" t="0.0" zOffset="0.0" orientation="none" length="2.0" width="7.0" hdg="0.0" pitch="0.0" roll="0.0">
+                <outlines>
+                    <outline id="0">
+                        <cornerRoad s="0.0" t="3.5" dz="0.0" height="4.0" id="0"/>
+                        <cornerRoad s="0.0" t="-3.5" dz="0.0" height="4.0" id="1"/>
+                        <cornerRoad s="2.0" t="-3.754033307585166" dz="0.0" height="4.0" id="2"/>
+                        <cornerRoad s="2.0" t="3.754033307585166" dz="0.0" height="4.0" id="3"/>
+                    </outline>
+                </outlines>
+                <markings>
+                    <marking width="0.1" color="white" zOffset="0.005" spaceLength ="0.05" lineLength ="0.2" startOffset="0.0" stopOffset="0.0" outlineId="0">
+                        <cornerReference id="0"/>
+                        <cornerReference id="1"/>
+                    </marking>
+                    <marking width="0.1" color="white" zOffset="0.005" spaceLength ="0.05" lineLength ="0.2" startOffset="0.0" stopOffset="0.0" outlineId="0">
+                        <cornerReference id="2"/>
+                        <cornerReference id="3"/>
+                    </marking>
+                </markings>
+            </object>
+            <object type="crosswalk" id="0" s="21.0" t="0.0" zOffset="0.0" orientation="none" length="2.0" width="7.0" hdg="0.0" pitch="0.0" roll="0.0">
+                <outlines>
+                    <outline id="0">
+                        <cornerRoad s="21.0" t="3.754033307585166" dz="0.0" height="4.0" id="0"/>
+                        <cornerRoad s="21.0" t="-3.754033307585166" dz="0.0" height="4.0" id="1"/>
+                        <cornerRoad s="23.0" t="-3.5" dz="0.0" height="4.0" id="2"/>
+                        <cornerRoad s="23.0" t="3.5" dz="0.0" height="4.0" id="3"/>
+                    </outline>
+                </outlines>
+                <markings>
+                    <marking width="0.1" color="white" zOffset="0.005" spaceLength ="0.05" lineLength ="0.2" startOffset="0.0" stopOffset="0.0" outlineId="0">
+                        <cornerReference id="0"/>
+                        <cornerReference id="1"/>
+                    </marking>
+                    <marking width="0.1" color="white" zOffset="0.005" spaceLength ="0.05" lineLength ="0.2" startOffset="0.0" stopOffset="0.0" outlineId="0">
+                        <cornerReference id="2"/>
+                        <cornerReference id="3"/>
+                    </marking>
+                </markings>
+            </object>
         </objects>
     </road>
     <road name="Road 6" length="23.0" id="6" junction="2">
@@ -334,6 +374,46 @@
             </laneSection>
         </lanes>
         <objects>
+            <object type="crosswalk" id="0" s="0.0" t="0.0" zOffset="0.0" orientation="none" length="2.0" width="7.0" hdg="0.0" pitch="0.0" roll="0.0">
+                <outlines>
+                    <outline id="0">
+                        <cornerRoad s="0.0" t="3.5" dz="0.0" height="4.0" id="0"/>
+                        <cornerRoad s="0.0" t="-3.5" dz="0.0" height="4.0" id="1"/>
+                        <cornerRoad s="2.0" t="-3.754033307585166" dz="0.0" height="4.0" id="2"/>
+                        <cornerRoad s="2.0" t="3.754033307585166" dz="0.0" height="4.0" id="3"/>
+                    </outline>
+                </outlines>
+                <markings>
+                    <marking width="0.1" color="white" zOffset="0.005" spaceLength ="0.05" lineLength ="0.2" startOffset="0.0" stopOffset="0.0" outlineId="0">
+                        <cornerReference id="0"/>
+                        <cornerReference id="1"/>
+                    </marking>
+                    <marking width="0.1" color="white" zOffset="0.005" spaceLength ="0.05" lineLength ="0.2" startOffset="0.0" stopOffset="0.0" outlineId="0">
+                        <cornerReference id="2"/>
+                        <cornerReference id="3"/>
+                    </marking>
+                </markings>
+            </object>
+            <object type="crosswalk" id="0" s="21.0" t="0.0" zOffset="0.0" orientation="none" length="2.0" width="7.0" hdg="0.0" pitch="0.0" roll="0.0">
+                <outlines>
+                    <outline id="0">
+                        <cornerRoad s="21.0" t="3.754033307585166" dz="0.0" height="4.0" id="0"/>
+                        <cornerRoad s="21.0" t="-3.754033307585166" dz="0.0" height="4.0" id="1"/>
+                        <cornerRoad s="23.0" t="-3.5" dz="0.0" height="4.0" id="2"/>
+                        <cornerRoad s="23.0" t="3.5" dz="0.0" height="4.0" id="3"/>
+                    </outline>
+                </outlines>
+                <markings>
+                    <marking width="0.1" color="white" zOffset="0.005" spaceLength ="0.05" lineLength ="0.2" startOffset="0.0" stopOffset="0.0" outlineId="0">
+                        <cornerReference id="0"/>
+                        <cornerReference id="1"/>
+                    </marking>
+                    <marking width="0.1" color="white" zOffset="0.005" spaceLength ="0.05" lineLength ="0.2" startOffset="0.0" stopOffset="0.0" outlineId="0">
+                        <cornerReference id="2"/>
+                        <cornerReference id="3"/>
+                    </marking>
+                </markings>
+            </object>
         </objects>
     </road>
     <road name="Road 7" length="18.06415775814131" id="7" junction="2">
