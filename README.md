@@ -41,11 +41,13 @@ Description:
 Options:
  - `WIDTH`: Width of the lanes(default 3m).
  - `RADIUS`: Radius of the junction's border(default 8m).
+ - `CROSSWALK`: Adds a crosswalk in each of the four sides of the intersection.(default=`False`)
+ - `CROSSWALK_LENGTH`: Length of the crosswalk to be added if enabled.(default 2m)
 
 For generating a XODR file by using this template simply execute:
 
 ```sh
-WIDTH=4 RADIUS=8 empy3 templates/intersection.xml.em > generated_file.xodr
+WIDTH=4 RADIUS=8 CROSSWALK=True CROSSWALK_LENGTH=2 empy3 templates/intersection.xml.em > generated_file.xodr
 ```
 
 ## Resources
