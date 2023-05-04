@@ -45,10 +45,13 @@ def sqrtdistance(p1:list, p2:list):
 
 # Width of the lanes
 width = str2float(os.environ['WIDTH']) if 'WIDTH' in os.environ  else 3.0
-# Whether to add crosswalks
-crosswalk = str2bool(os.environ['CROSSWALK']) if 'CROSSWALK' in os.environ else False
 # Radius of the junction
 radius = str2float(os.environ['RADIUS']) if 'RADIUS' in os.environ else 8.0
+# Whether to add crosswalks
+crosswalk = str2bool(os.environ['CROSSWALK']) if 'CROSSWALK' in os.environ else False
+# crosswalk length
+crosswalk_length = str2float(os.environ['CROSSWALK_LENGTH']) if 'CROSSWALK_LENGTH' in os.environ else 2.0
+
 
 # No junction roads
 #          2
@@ -106,7 +109,38 @@ road_10_radius = radius + width
 road_10_curvature = 1./road_10_radius
 road_10_length = road_10_radius * m.pi / 2. # 90 degrees of curvature
 
+if crosswalk:
+  ## Crosswalk config
+  def quadratic_solver(a, b, c):
+      delta = b * b - 4 * a * c
+      if delta < 0:
+          return None
+      elif delta == 0:
+          return [-b / (2 * a), -b / (2 * a)]
+      else:
+          return [(-b + m.sqrt(delta)) / (2 * a), (-b - m.sqrt(delta)) / (2 * a)]
+
+  ## Using the quadratic formula to find the extrusion length of the crosswalk.
+  ## This is calculated combining the arc length with circunference equation.
+  b = 2 * radius
+  c = crosswalk_length * crosswalk_length
+  roots_left = quadratic_solver(1, b, c)
+  roots_right = quadratic_solver(1, -b, c)
+  if roots_left is None or roots_right is None:
+      raise Exception("Error: Probably the crosswalk length is too long for the given radius")
+  extrusion_right = abs(min(roots_right))
+  extrusion_left = abs(max(roots_left))
+  # by symetry the abs value of left and right extrusion are equal
+  assert abs(extrusion_left - extrusion_right) < 1e-6
+
 }@
+<!--
+ Map generated using:
+  - WIDTH: @(width)@ 
+  - RADIUS: @(radius)@ 
+  - CROSSWALK: @(crosswalk)@ 
+  - CROSSWALK_LENGTH: @(crosswalk_length)@ 
+-->
 <OpenDRIVE>
     <header revMajor="1" revMinor="1" name="StraightRoad" version="1.00" date="Fri Apr 28 12:00:00 2023" north="0.0000000000000000e+00" south="0.0000000000000000e+00" east="0.0000000000000000e+00" west="0.0000000000000000e+00" maxRoad="2" maxJunc="0" maxPrg="0">
         <geoReference><![CDATA[+proj=tmerc +lat_0=37.4168716 +lon_0=-122.1030492 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +vunits=m +no_defs ]]></geoReference>
@@ -350,6 +384,49 @@ road_10_length = road_10_radius * m.pi / 2. # 90 degrees of curvature
                 </right>
             </laneSection>
         </lanes>
+        @[if crosswalk]<objects>
+            <object type="crosswalk" id="0" s="0.0" t="0.0" zOffset="0.0" orientation="none" length="@(crosswalk_length)@\" width="@(width * 2)@\" hdg="0.0" pitch="0.0" roll="0.0">
+                <outlines>
+                    <outline id="0">
+                        <cornerRoad s="0.0" t="@(width)@\" dz="0.0" height="4.0" id="0"/>
+                        <cornerRoad s="0.0" t="-@(width)@\" dz="0.0" height="4.0" id="1"/>
+                        <cornerRoad s="@(crosswalk_length)@\" t="-@(width+extrusion_right)@\" dz="0.0" height="4.0" id="2"/>
+                        <cornerRoad s="@(crosswalk_length)@\" t="@(width+extrusion_left)@\" dz="0.0" height="4.0" id="3"/>
+                    </outline>
+                </outlines>
+                <markings>
+                    <marking width="0.1" color="white" zOffset="0.005" spaceLength ="0.05" lineLength ="0.2" startOffset="0.0" stopOffset="0.0" outlineId="0">
+                        <cornerReference id="0"/>
+                        <cornerReference id="1"/>
+                    </marking>
+                    <marking width="0.1" color="white" zOffset="0.005" spaceLength ="0.05" lineLength ="0.2" startOffset="0.0" stopOffset="0.0" outlineId="0">
+                        <cornerReference id="2"/>
+                        <cornerReference id="3"/>
+                    </marking>
+                </markings>
+            </object>
+            <object type="crosswalk" id="0" s="@(road_5_length - crosswalk_length)@\" t="0.0" zOffset="0.0" orientation="none" length="@(crosswalk_length)@\" width="@(width * 2)@\" hdg="0.0" pitch="0.0" roll="0.0">
+                <outlines>
+                    <outline id="0">
+                        <cornerRoad s="@(road_5_length - crosswalk_length)@\" t="@(width+extrusion_left)@\" dz="0.0" height="4.0" id="0"/>
+                        <cornerRoad s="@(road_5_length - crosswalk_length)@\" t="-@(width+extrusion_right)@\" dz="0.0" height="4.0" id="1"/>
+                        <cornerRoad s="@(road_5_length)@\" t="-@(width)@\" dz="0.0" height="4.0" id="2"/>
+                        <cornerRoad s="@(road_5_length)@\" t="@(width)@\" dz="0.0" height="4.0" id="3"/>
+                    </outline>
+                </outlines>
+                <markings>
+                    <marking width="0.1" color="white" zOffset="0.005" spaceLength ="0.05" lineLength ="0.2" startOffset="0.0" stopOffset="0.0" outlineId="0">
+                        <cornerReference id="0"/>
+                        <cornerReference id="1"/>
+                    </marking>
+                    <marking width="0.1" color="white" zOffset="0.005" spaceLength ="0.05" lineLength ="0.2" startOffset="0.0" stopOffset="0.0" outlineId="0">
+                        <cornerReference id="2"/>
+                        <cornerReference id="3"/>
+                    </marking>
+                </markings>
+            </object>
+        </objects>@[else]<objects>
+        </objects>@[end if]
     </road>
     <road name="Road 6" length="@(road_6_length)@\" id="6" junction="2">
         <link>
@@ -402,6 +479,49 @@ road_10_length = road_10_radius * m.pi / 2. # 90 degrees of curvature
                 </right>
             </laneSection>
         </lanes>
+        @[if crosswalk]<objects>
+            <object type="crosswalk" id="0" s="0.0" t="0.0" zOffset="0.0" orientation="none" length="@(crosswalk_length)@\" width="@(width * 2)@\" hdg="0.0" pitch="0.0" roll="0.0">
+                <outlines>
+                    <outline id="0">
+                        <cornerRoad s="0.0" t="@(width)@\" dz="0.0" height="4.0" id="0"/>
+                        <cornerRoad s="0.0" t="-@(width)@\" dz="0.0" height="4.0" id="1"/>
+                        <cornerRoad s="@(crosswalk_length)@\" t="-@(width+extrusion_right)@\" dz="0.0" height="4.0" id="2"/>
+                        <cornerRoad s="@(crosswalk_length)@\" t="@(width+extrusion_left)@\" dz="0.0" height="4.0" id="3"/>
+                    </outline>
+                </outlines>
+                <markings>
+                    <marking width="0.1" color="white" zOffset="0.005" spaceLength ="0.05" lineLength ="0.2" startOffset="0.0" stopOffset="0.0" outlineId="0">
+                        <cornerReference id="0"/>
+                        <cornerReference id="1"/>
+                    </marking>
+                    <marking width="0.1" color="white" zOffset="0.005" spaceLength ="0.05" lineLength ="0.2" startOffset="0.0" stopOffset="0.0" outlineId="0">
+                        <cornerReference id="2"/>
+                        <cornerReference id="3"/>
+                    </marking>
+                </markings>
+            </object>
+            <object type="crosswalk" id="0" s="@(road_6_length - crosswalk_length)@\" t="0.0" zOffset="0.0" orientation="none" length="@(crosswalk_length)@\" width="@(width * 2)@\" hdg="0.0" pitch="0.0" roll="0.0">
+                <outlines>
+                    <outline id="0">
+                        <cornerRoad s="@(road_6_length - crosswalk_length)@\" t="@(width+extrusion_left)@\" dz="0.0" height="4.0" id="0"/>
+                        <cornerRoad s="@(road_6_length - crosswalk_length)@\" t="-@(width+extrusion_right)@\" dz="0.0" height="4.0" id="1"/>
+                        <cornerRoad s="@(road_6_length)@\" t="-@(width)@\" dz="0.0" height="4.0" id="2"/>
+                        <cornerRoad s="@(road_6_length)@\" t="@(width)@\" dz="0.0" height="4.0" id="3"/>
+                    </outline>
+                </outlines>
+                <markings>
+                    <marking width="0.1" color="white" zOffset="0.005" spaceLength ="0.05" lineLength ="0.2" startOffset="0.0" stopOffset="0.0" outlineId="0">
+                        <cornerReference id="0"/>
+                        <cornerReference id="1"/>
+                    </marking>
+                    <marking width="0.1" color="white" zOffset="0.005" spaceLength ="0.05" lineLength ="0.2" startOffset="0.0" stopOffset="0.0" outlineId="0">
+                        <cornerReference id="2"/>
+                        <cornerReference id="3"/>
+                    </marking>
+                </markings>
+            </object>
+        </objects>@[else]<objects>
+        </objects>@[end if]
     </road>
     <road name="Road 7" length="@(road_7_length)@\" id="7" junction="2">
         <link>
