@@ -19,6 +19,8 @@ Description:
  - 200m road.
  - Two lanes with opposite direction.
 
+<img src="docs/straight_forward.png" width=500>
+
 
 Options:
  - `CROSSWALK`: Adds a 2m-width crosswalk in the middle(s=100m).(default=`False`)
@@ -30,4 +32,22 @@ For generating a XODR file by using this template simply execute:
 CROSSWALK=True WIDTH=4 empy3 templates/straight_forward.xml.em > generated_file.xodr
 ```
 
-Also, example files with different values are provided under the `resources` folder. 
+### Intersection
+Description:
+ - 4 road intersection.
+
+<img src="docs/intersection.png" width=500>
+
+Options:
+ - `WIDTH`: Width of the lanes(default 3m).
+ - `RADIUS`: Radius of the junction's border(default 8m).
+
+For generating a XODR file by using this template simply execute:
+
+```sh
+WIDTH=4 RADIUS=8 empy3 templates/intersection.xml.em > generated_file.xodr
+```
+
+## Resources
+
+Example files with different values are provided under the `resources` folder. 
