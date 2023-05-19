@@ -176,7 +176,7 @@ crosswalk = str2bool(os.environ['CROSSWALK']) if 'CROSSWALK' in os.environ else 
           <predecessor elementType="junction" elementId="2"/>
         </link>
         <planView>
-            <geometry s="0.0000000000000000e+00" x="102.0" y="0.0" hdg="0.0" length="200.0">
+            <geometry s="0.0000000000000000e+00" x="102.0" y="0.0" hdg="0.0" length="98.0">
                 <line/>
             </geometry>
         </planView>
