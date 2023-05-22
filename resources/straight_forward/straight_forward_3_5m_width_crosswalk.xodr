@@ -262,3 +262,53 @@
         </connection>
     </junction>
 </OpenDRIVE>
+
+<!-- GeoJSON information for the crosswalks
+Generated GeoJSON can be verified using: https://geojson.io
+
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -122.10193085088243,
+              37.41690313036948,
+              0.0
+            ]
+            [
+              -122.10193085182026,
+              37.41684005905126,
+              0.0
+            ],
+            [
+              -122.10190825892774,
+              37.41684005883538,
+              0.0
+            ],
+            [
+              -122.10190825797098,
+              37.4169031301536,
+              0.0
+            ],
+            [
+              -122.10193085088243,
+              37.41690313036948,
+              0.0
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "{46c1b716-c704-427b-b57d-afe4fab608df}",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}
+
+-->
