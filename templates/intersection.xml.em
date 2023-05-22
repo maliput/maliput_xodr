@@ -43,6 +43,11 @@ def str2float(string):
 def sqrtdistance(p1:list, p2:list):
   return m.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
 
+# Georeference information
+LAT_0 = 37.4168716
+LON_0 = -122.1030492
+
+
 # Width of the lanes
 width = str2float(os.environ['WIDTH']) if 'WIDTH' in os.environ  else 3.0
 # Radius of the junction
@@ -133,6 +138,66 @@ if crosswalk:
   # by symetry the abs value of left and right extrusion are equal
   assert abs(extrusion_left - extrusion_right) < 1e-6
 
+
+  import pyproj
+  def cartesian_to_geodetic(x, y, z, origin_lon, origin_lat):
+      # Define the projection systems
+      geodetic_crs = pyproj.CRS.from_string("EPSG:4326")  # Geodetic (lon, lat) system (WGS84)
+      projection_crs = pyproj.CRS.from_string(f"+proj=tmerc +lat_0={origin_lat} +lon_0={origin_lon} +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs")  # Cartesian (x, y, z) system with tmerc projection (WGS84)
+
+      # Create the transformer
+      transformer = pyproj.Transformer.from_crs(projection_crs, geodetic_crs, always_xy=True)
+
+      # Convert Cartesian coordinates to geodetic
+      target_lon, target_lat, target_z = transformer.transform(x, y, z)
+
+      return target_lon, target_lat, target_z
+
+  def to_lon_lat_points(points):
+      lon_lat_points = []
+      for point in points:
+          lon, lat, h = cartesian_to_geodetic(point[0], point[1], 0, LON_0, LAT_0)
+          lon_lat_points.append([lon, lat, h])
+      lon_lat_points.append(lon_lat_points[0]) # GeoJSON format needs closure
+      return lon_lat_points
+
+  ## Calculate corners of the crosswalk
+  ## West Crosswalk
+  crosswalk_west_points = [[road_5_start[0], road_5_start[1] + width],
+                           [road_5_start[0], road_5_start[1] - width],
+                           [road_5_start[0] + crosswalk_length, road_5_start[1] - width - extrusion_right],
+                           [road_5_start[0] + crosswalk_length, road_5_start[1] + width + extrusion_left],
+                          ]
+
+  crosswalk_west_points_lon_lat = to_lon_lat_points(crosswalk_west_points)
+
+  ## East Crosswalk
+  crosswalk_east_points = [[road_5_end[0] - crosswalk_length, road_5_end[1] + width + extrusion_left],
+                           [road_5_end[0] - crosswalk_length, road_5_end[1] - width - extrusion_left],
+                           [road_5_end[0], road_5_end[1] - width],
+                           [road_5_end[0], road_5_end[1] + width],
+                          ]
+
+  crosswalk_east_points_lon_lat = to_lon_lat_points(crosswalk_east_points)
+
+  ## North Crosswalk
+  crosswalk_north_points = [[road_6_start[0] + width, road_6_start[1]],
+                           [road_6_start[0] - width, road_6_start[1]],
+                           [road_6_start[0] - width - extrusion_right, road_6_start[1] - crosswalk_length],
+                           [road_6_start[0] + width + extrusion_left, road_6_start[1] - crosswalk_length],
+                          ]
+
+  crosswalk_north_points_lon_lat = to_lon_lat_points(crosswalk_north_points)
+
+  ## South Crosswalk
+  crosswalk_south_points = [[road_6_end[0] + width + extrusion_left, road_6_end[1] + crosswalk_length],
+                           [road_6_end[0] - width - extrusion_left , road_6_end[1] + crosswalk_length],
+                           [road_6_end[0] - width, road_6_end[1]],
+                           [road_6_end[0] + width, road_6_end[1]],
+                          ]
+
+  crosswalk_south_points_lon_lat = to_lon_lat_points(crosswalk_south_points)
+
 }@
 <!--
  Map generated using:
@@ -143,7 +208,7 @@ if crosswalk:
 -->
 <OpenDRIVE>
     <header revMajor="1" revMinor="1" name="StraightRoad" version="1.00" date="Fri Apr 28 12:00:00 2023" north="0.0000000000000000e+00" south="0.0000000000000000e+00" east="0.0000000000000000e+00" west="0.0000000000000000e+00" maxRoad="2" maxJunc="0" maxPrg="0">
-        <geoReference><![CDATA[+proj=tmerc +lat_0=37.4168716 +lon_0=-122.1030492 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +vunits=m +no_defs ]]></geoReference>
+        <geoReference><![CDATA[+proj=tmerc +lat_0=@(LAT_0)@  +lon_0=@(LON_0)@  +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +vunits=m +no_defs ]]></geoReference>
     </header>
     <road name="Road 1" length="100.0" id="1" junction="-1">
         <link>
@@ -758,3 +823,101 @@ if crosswalk:
         </connection>
     </junction>
 </OpenDRIVE>
+@[if crosswalk]
+<!-- GeoJSON information for the crosswalks
+Generated GeoJSON can be verified using: https://geojson.io
+@{
+}@
+
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          [
+@[for idx, lon_lat_z in enumerate(crosswalk_west_points_lon_lat)]@
+            [
+              @(lon_lat_z[0]),
+              @(lon_lat_z[1]),
+              @(lon_lat_z[2])
+            ]@[if (idx != len(crosswalk_west_points_lon_lat)-1)],@[end if]
+@[end for ]@
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "{46c1b716-c704-427b-b57d-afe4fab608df}",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+@[for idx, lon_lat_z in enumerate(crosswalk_east_points_lon_lat)]@
+            [
+              @(lon_lat_z[0]),
+              @(lon_lat_z[1]),
+              @(lon_lat_z[2])
+            ]@[if (idx != len(crosswalk_east_points_lon_lat)-1)],@[end if]
+@[end for ]@
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "{56c1b716-c704-427b-b57d-afe4fab608df}",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+@[for idx, lon_lat_z in enumerate(crosswalk_north_points_lon_lat)]@
+            [
+              @(lon_lat_z[0]),
+              @(lon_lat_z[1]),
+              @(lon_lat_z[2])
+            ]@[if (idx != len(crosswalk_north_points_lon_lat)-1)],@[end if]
+@[end for ]@
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "{56c1b716-c704-427b-b57d-afe4fab608df}",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+@[for idx, lon_lat_z in enumerate(crosswalk_south_points_lon_lat)]@
+            [
+              @(lon_lat_z[0]),
+              @(lon_lat_z[1]),
+              @(lon_lat_z[2])
+            ]@[if (idx != len(crosswalk_south_points_lon_lat)-1)],@[end if]
+@[end for ]@
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "{56c1b716-c704-427b-b57d-afe4fab608df}",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}
+
+-->
+@[end if]
