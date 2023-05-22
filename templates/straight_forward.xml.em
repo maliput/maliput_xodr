@@ -329,12 +329,12 @@ Generated GeoJSON can be verified using: https://geojson.io
       "geometry": {
         "coordinates": [
           [
-@[for lon_lat_z in crosswalk_points_lon_lat]@
+@[for idx, lon_lat_z in enumerate(crosswalk_points_lon_lat)]@
             [
               @(lon_lat_z[0]),
               @(lon_lat_z[1]),
               @(lon_lat_z[2])
-            ]@[if (lon_lat_z is not crosswalk_points_lon_lat[len(crosswalk_points_lon_lat)-1])],@[end if]
+            ]@[if (idx != len(crosswalk_points_lon_lat)-1)],@[end if]
 @[end for ]@
           ]
         ],
