@@ -138,7 +138,7 @@ crosswalk = str2bool(os.environ['CROSSWALK']) if 'CROSSWALK' in os.environ else 
             </laneSection>
         </lanes>
         @[if crosswalk]<objects>
-            <object type="crosswalk" id="0" s="2.0" t="0.0" zOffset="0.0" orientation="none" length="2.0" width="@(width * 2)@\" hdg="0.0" pitch="0.0" roll="0.0">
+            <object type="crosswalk" id="0" s="2.0" t="0.0" zOffset="0.0" orientation="none" length="2.0" width="@(width)@\" hdg="0.0" pitch="0.0" roll="0.0">
                 <outlines>
                     <outline id="0">
                         <cornerRoad s="1.0" t="@(width)@\" dz="0.0" height="4.0" id="0"/>
@@ -202,7 +202,7 @@ crosswalk = str2bool(os.environ['CROSSWALK']) if 'CROSSWALK' in os.environ else 
             </laneSection>
         </lanes>
         @[if crosswalk]<objects>
-            <object type="crosswalk" id="0" s="2.0" t="0.0" zOffset="0.0" orientation="none" length="2.0" width="@(width * 2)@\" hdg="0.0" pitch="0.0" roll="0.0">
+            <object type="crosswalk" id="0" s="2.0" t="0.0" zOffset="0.0" orientation="none" length="2.0" width="@(width)@\" hdg="0.0" pitch="0.0" roll="0.0">
                 <outlines>
                     <outline id="0">
                         <cornerRoad s="1.0" t="0.0" dz="0.0" height="4.0" id="0"/>

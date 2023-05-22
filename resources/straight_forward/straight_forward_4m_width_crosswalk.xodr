@@ -119,7 +119,7 @@
             </laneSection>
         </lanes>
         <objects>
-            <object type="crosswalk" id="0" s="2.0" t="0.0" zOffset="0.0" orientation="none" length="2.0" width="8.0" hdg="0.0" pitch="0.0" roll="0.0">
+            <object type="crosswalk" id="0" s="2.0" t="0.0" zOffset="0.0" orientation="none" length="2.0" width="4.0" hdg="0.0" pitch="0.0" roll="0.0">
                 <outlines>
                     <outline id="0">
                         <cornerRoad s="1.0" t="4.0" dz="0.0" height="4.0" id="0"/>
@@ -182,7 +182,7 @@
             </laneSection>
         </lanes>
         <objects>
-            <object type="crosswalk" id="0" s="2.0" t="0.0" zOffset="0.0" orientation="none" length="2.0" width="8.0" hdg="0.0" pitch="0.0" roll="0.0">
+            <object type="crosswalk" id="0" s="2.0" t="0.0" zOffset="0.0" orientation="none" length="2.0" width="4.0" hdg="0.0" pitch="0.0" roll="0.0">
                 <outlines>
                     <outline id="0">
                         <cornerRoad s="1.0" t="0.0" dz="0.0" height="4.0" id="0"/>
