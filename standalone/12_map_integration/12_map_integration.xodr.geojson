@@ -34,7 +34,7 @@
         "type": "Polygon"
       },
       "properties": {
-          "Id": "submap_4",
+          "Id": "sub_map_4",
           "Type": "Crosswalk"
       },
       "type": "Feature"
@@ -73,7 +73,46 @@
         "type": "Polygon"
       },
       "properties": {
-          "Id": "submap_5",
+          "Id": "sub_map_5",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -122.09006957173646,
+              37.416906928247045,
+              0.0
+            ],
+            [
+              -122.09006958417577,
+              37.41683484674234,
+              0.0
+            ],
+            [
+              -122.0900469912854,
+              37.416834844259746,
+              0.0
+            ],
+            [
+              -122.09004697882442,
+              37.41690692576445,
+              0.0
+            ],
+            [
+              -122.09006957173646,
+              37.416906928247045,
+              0.0
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "sub_map_6",
           "Type": "Crosswalk"
       },
       "type": "Feature"
