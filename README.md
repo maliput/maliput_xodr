@@ -63,3 +63,5 @@ Example files with different values are provided under the `resources` folder.
 Standalone maps that doesn't respond to a particular template are added in the `standalone` folder.
 
  - [12_map_integration](standalone/12_map_integration/) map: A large-combined map was created out of the available `resources`. See [12_map_integration/README](standalone/12_map_integration/README.md) for more information about the map creation.
+
+    <img src="docs/12_map_integration.jpg" width=500>
