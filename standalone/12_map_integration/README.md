@@ -6,23 +6,23 @@ The 12_map_integration map is composed by 12 submaps.
 ### Submaps
 
 
-sub_map_1 : [straight_forward_3m_width.xodr](../../resources/straight_forward/straight_forward_3m_width.xodr)
-sub_map_2 : [straight_forward_3_5m_width.xodr](../../resources/straight_forward/straight_forward_3_5m_width.xodr)
-sub_map_3 : [straight_forward_4m_width.xodr](../../resources/straight_forward/straight_forward_4m_width.xodr)
-sub_map_4 : [straight_forward_3m_width_crosswalk.xodr](../../resources/straight_forward/straight_forward_3m_width_crosswalk.xodr)
-sub_map_5 : [straight_forward_3_5m_width_crosswalk.xodr](../../resources/straight_forward/straight_forward_3_5m_width_crosswalk.xodr)
-sub_map_6 : [straight_forward_4m_width_crosswalk.xodr](../../resources/straight_forward/straight_forward_4m_width_crosswalk.xodr)
-sub_map_7 : [intersection_3m_width.xodr](../../resources/intersection/intersection_3m_width.xodr)
-sub_map_8 : [intersection_3_5m_width.xodr](../../resources/intersection/intersection_3_5m_width.xodr)
-sub_map_9 : [intersection_4m_width.xodr](../../resources/intersection/intersection_4m_width.xodr)
-sub_map_10 : [intersection_3m_width_crosswalk.xodr](../../resources/intersection/intersection_3m_width_crosswalk.xodr)
-sub_map_11 : [intersection_3_5m_width_crosswalk.xodr](../../resources/intersection/intersection_3_5m_width_crosswalk.xodr)
-sub_map_12 : [intersection_4m_width_crosswalk.xodr](../../resources/intersection/intersection_4m_width_crosswalk.xodr)
+ - sub_map_1 : [straight_forward_3m_width.xodr](../../resources/straight_forward/straight_forward_3m_width.xodr)
+ - sub_map_2 : [straight_forward_3_5m_width.xodr](../../resources/straight_forward/straight_forward_3_5m_width.xodr)
+ - sub_map_3 : [straight_forward_4m_width.xodr](../../resources/straight_forward/straight_forward_4m_width.xodr)
+ - sub_map_4 : [straight_forward_3m_width_crosswalk.xodr](../../resources/straight_forward/straight_forward_3m_width_crosswalk.xodr)
+ - sub_map_5 : [straight_forward_3_5m_width_crosswalk.xodr](../../resources/straight_forward/straight_forward_3_5m_width_crosswalk.xodr)
+ - sub_map_6 : [straight_forward_4m_width_crosswalk.xodr](../../resources/straight_forward/straight_forward_4m_width_crosswalk.xodr)
+ - sub_map_7 : [intersection_3m_width.xodr](../../resources/intersection/intersection_3m_width.xodr)
+ - sub_map_8 : [intersection_3_5m_width.xodr](../../resources/intersection/intersection_3_5m_width.xodr)
+ - sub_map_9 : [intersection_4m_width.xodr](../../resources/intersection/intersection_4m_width.xodr)
+ - sub_map_10 : [intersection_3m_width_crosswalk.xodr](../../resources/intersection/intersection_3m_width_crosswalk.xodr)
+ - sub_map_11 : [intersection_3_5m_width_crosswalk.xodr](../../resources/intersection/intersection_3_5m_width_crosswalk.xodr)
+ - sub_map_12 : [intersection_4m_width_crosswalk.xodr](../../resources/intersection/intersection_4m_width_crosswalk.xodr)
 
 ### Submap distribution
 
 
-The maps are composed into one large map with the following distribution.
+ - The submaps are composed into one large map with the following distribution.
 
 ```
 
@@ -33,10 +33,14 @@ sub_map_1 ----- sub_map_2 ----- sub_map_3 ----- sub_map_4 ----- sub_map_5 ----- 
 sub_map_7 ----- sub_map_8 ----- sub_map_9 ----- sub_map_10 ----- sub_map_11 ----- sub_map_12
 ```
 
+ - The submaps aren't connected each other.
+
 ### Procedure for creating the large map
 
+For creating the map the following steps were taken.
+
 1. Create the 12 submaps with the correspondent offset in a way that when merged no overlapping occurs
-2. Adapt the road ids and junction ids to avoid any kind of classing among ids.
+2. Adapt the road ids and junction ids to avoid any kind of clashing among ids.
 3. Merge all OpenDRIVE description into one.
 4. Merge all GeoJSON description into one.
 
