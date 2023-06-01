@@ -45,6 +45,8 @@ Options:
  - `RADIUS`: Radius of the junction's border(default 8m).
  - `CROSSWALK`: Adds a crosswalk in each of the four sides of the intersection.(default=`False`)
  - `CROSSWALK_LENGTH`: Length of the crosswalk to be added if enabled.(default 2m)
+ - `X_OFFSET`: X offset with respect to the origin.
+ - `Y_OFFSET`: Y offset with respect to the origin.
 
 For generating a XODR file by using this template simply execute:
 
