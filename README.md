@@ -25,6 +25,8 @@ Description:
 Options:
  - `CROSSWALK`: Adds a 2m-width crosswalk in the middle(s=100m).(default=`False`)
  - `WIDTH`: Width of the lanes(default 3m).
+ - `X_OFFSET`: X offset with respect to the origin.
+ - `Y_OFFSET`: Y offset with respect to the origin.
 
 For generating a XODR file by using this template simply execute:
 
