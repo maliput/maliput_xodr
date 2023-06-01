@@ -47,10 +47,17 @@ width = str2float(os.environ['WIDTH']) if 'WIDTH' in os.environ  else 3.0
 crosswalk = str2bool(os.environ['CROSSWALK']) if 'CROSSWALK' in os.environ else False
 crosswalk_length = 2.0
 
+# With crosswalk:
 #         Road 3
 # ------> ------> ------->
 # <------ <------ <-------
 # Road 1  Road 4  Road 2
+
+# Without crosswalk:
+# Road 1
+# ----------------->
+# <-----------------
+#
 
 
 if crosswalk:
@@ -81,17 +88,57 @@ if crosswalk:
     crosswalk_points_lon_lat.append([lon, lat, h])
   crosswalk_points_lon_lat.append(crosswalk_points_lon_lat[0]) # GeoJSON format needs closure
 
-#         Road 3
-# ------> ------> ------->
-# <------ <------ <-------
-# Road 1  Road 4  Road 2
-
 }@
 <OpenDRIVE>
     <header revMajor="1" revMinor="1" name="StraightRoad" version="1.00" date="Fri Apr 28 12:00:00 2023" north="0.0000000000000000e+00" south="0.0000000000000000e+00" east="0.0000000000000000e+00" west="0.0000000000000000e+00" maxRoad="2" maxJunc="0" maxPrg="0">
         <geoReference><![CDATA[+proj=tmerc +lat_0=@(LAT_0)@  +lon_0=@(LON_0)@  +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +vunits=m +no_defs ]]></geoReference>
     </header>
-    <road name="Road 1" length="98.0" id="1" junction="-1">
+    @[if not crosswalk]<road name="Road 1" length="200.0" id="1" junction="-1">
+        <link>
+        </link>
+        <planView>
+            <geometry s="0.0000000000000000e+00" x="0.0" y="0.0" hdg="0.0" length="200.0">
+                <line/>
+            </geometry>
+        </planView>
+        <elevationProfile>
+        </elevationProfile>
+        <lateralProfile>
+        </lateralProfile>
+        <lanes>
+            <laneSection s="0.0000000000000000e+00">
+                <left>
+                    <lane id="1" type="driving" level= "0">
+                        <link>
+                        </link>
+                        <width sOffset="0.0000000000000000e+00" a="@(width)@\" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
+                        <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
+                        <userData>
+                            <vectorLane travelDir="forward"/>
+                        </userData>
+                    </lane>
+                </left>
+                <center>
+                    <lane id="0" type="none" level= "0">
+                        <link>
+                        </link>
+                        <roadMark sOffset="0.0000000000000000e+00" type="broken" weight="standard" color="standard" width="1.3000000000000000e-01"/>
+                    </lane>
+                </center>
+                <right>
+                    <lane id="-1" type="driving" level= "0">
+                        <link>
+                        </link>
+                        <width sOffset="0.0000000000000000e+00" a="@(width)@\" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
+                        <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
+                        <userData>
+                            <vectorLane travelDir="backward"/>
+                        </userData>
+                    </lane>
+                </right>
+            </laneSection>
+        </lanes>
+    </road>@[else]<road name="Road 1" length="98.0" id="1" junction="-1">
         <link>
           <successor elementType="junction" elementId="2"/>
         </link>
@@ -176,7 +223,7 @@ if crosswalk:
                 </center>
             </laneSection>
         </lanes>
-        @[if crosswalk]<objects>
+        <objects>
             <object type="crosswalk" id="0" s="2.0" t="0.0" zOffset="0.0" orientation="none" length="2.0" width="@(width)@\" hdg="0.0" pitch="0.0" roll="0.0">
                 <outlines>
                     <outline id="0">
@@ -197,8 +244,7 @@ if crosswalk:
                     </marking>
                 </markings>
             </object>
-        </objects>@[else]<objects>
-        </objects>@[end if]
+        </objects>
         <signals>
         </signals>
     </road>
@@ -240,7 +286,7 @@ if crosswalk:
                 </right>
             </laneSection>
         </lanes>
-        @[if crosswalk]<objects>
+        <objects>
             <object type="crosswalk" id="0" s="2.0" t="0.0" zOffset="0.0" orientation="none" length="2.0" width="@(width)@\" hdg="0.0" pitch="0.0" roll="0.0">
                 <outlines>
                     <outline id="0">
@@ -261,8 +307,7 @@ if crosswalk:
                     </marking>
                 </markings>
             </object>
-        </objects>@[else]<objects>
-        </objects>@[end if]
+        </objects>
         <signals>
         </signals>
     </road>
@@ -320,7 +365,7 @@ if crosswalk:
         <connection id="1" incomingRoad="1" connectingRoad="4" contactPoint="start">
             <laneLink from="-1" to="-1"/>
         </connection>
-    </junction>
+    </junction>@[end if]
 </OpenDRIVE>
 @[if crosswalk]
 <!-- GeoJSON information for the crosswalks
