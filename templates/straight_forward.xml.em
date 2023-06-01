@@ -43,6 +43,8 @@ def str2bool(string):
 def str2float(string):
   return float(string)
 
+x_offset = str2float(os.environ['X_OFFSET']) if 'X_OFFSET' in os.environ  else 0.0
+y_offset = str2float(os.environ['Y_OFFSET']) if 'Y_OFFSET' in os.environ  else 0.0
 width = str2float(os.environ['WIDTH']) if 'WIDTH' in os.environ  else 3.0
 crosswalk = str2bool(os.environ['CROSSWALK']) if 'CROSSWALK' in os.environ else False
 crosswalk_length = 2.0
@@ -76,11 +78,32 @@ if crosswalk:
     return target_lon, target_lat, target_z
 
 
+  ## Roads coordinates
+  # Road 1
+  road_1_length = 98.0
+  road_1_start = [x_offset, y_offset]
+  road_1_end = [road_1_length + road_1_start[0], road_1_start[1]]
+
+  # Road 3
+  road_3_length = 4.0
+  road_3_start = road_1_end
+  road_3_end = [road_3_start[0] + road_3_length, road_3_start[1]]
+
+  # Road 4
+  road_4_length = 4.0
+  road_4_start = road_3_start
+  road_4_end = road_3_end
+
+  # Road 2
+  road_2_length = road_1_length
+  road_2_start = road_3_end
+  road_2_end = [road_2_start[0] + road_2_length, road_2_start[1]]
+
   ## Calculate corners of the crosswalk
-  crosswalk_points = [[99., 0. + width],
-                      [99., 0. - width],
-                      [101., 0. - width],
-                      [101., 0. + width]]
+  crosswalk_points = [[road_3_start[0] + crosswalk_length/2. , road_3_start[1] + width],
+                      [road_3_start[0] + crosswalk_length/2. , road_3_start[1] - width],
+                      [road_3_end[0] - crosswalk_length/2. , road_3_end[1] - width],
+                      [road_3_end[0] - crosswalk_length/2. , road_3_end[1] + width]]
 
   crosswalk_points_lon_lat = []
   for point in crosswalk_points:
@@ -97,7 +120,7 @@ if crosswalk:
         <link>
         </link>
         <planView>
-            <geometry s="0.0000000000000000e+00" x="0.0" y="0.0" hdg="0.0" length="200.0">
+            <geometry s="0.0000000000000000e+00" x="@(x_offset)@\" y="@(y_offset)@\" hdg="0.0" length="200.0">
                 <line/>
             </geometry>
         </planView>
@@ -138,12 +161,12 @@ if crosswalk:
                 </right>
             </laneSection>
         </lanes>
-    </road>@[else]<road name="Road 1" length="98.0" id="1" junction="-1">
+    </road>@[else]<road name="Road 1" length="@(road_1_length)@\" id="1" junction="-1">
         <link>
           <successor elementType="junction" elementId="2"/>
         </link>
         <planView>
-            <geometry s="0.0000000000000000e+00" x="0.0" y="0.0" hdg="0.0" length="98.0">
+            <geometry s="0.0000000000000000e+00" x="@(road_1_start[0])@\" y="@(road_1_start[1])@\" hdg="0.0" length="@(road_1_length)@\">
                 <line/>
             </geometry>
         </planView>
@@ -185,13 +208,13 @@ if crosswalk:
             </laneSection>
         </lanes>
     </road>
-    <road name="Road 3" length="4.0" id="3" junction="2">
+    <road name="Road 3" length="@(road_3_length)@\" id="3" junction="2">
         <link>
             <predecessor elementType="road" elementId="1" contactPoint="end"/>
             <successor elementType="road" elementId="2" contactPoint="start"/>
         </link>
         <planView>
-            <geometry s="0.0000000000000000e+00" x="98.0" y="0.0" hdg="0.0" length="4.0">
+            <geometry s="0.0000000000000000e+00" x="@(road_3_start[0])@\" y="@(road_3_start[1])@\" hdg="0.0" length="@(road_3_length)@\">
                 <line/>
             </geometry>
         </planView>
@@ -248,13 +271,13 @@ if crosswalk:
         <signals>
         </signals>
     </road>
-    <road name="Road 4" length="4.0" id="4" junction="2">
+    <road name="Road 4" length="@(road_4_length)@\" id="4" junction="2">
         <link>
             <predecessor elementType="road" elementId="1" contactPoint="end"/>
             <successor elementType="road" elementId="2" contactPoint="start"/>
         </link>
         <planView>
-            <geometry s="0.0000000000000000e+00" x="98.0" y="0.0" hdg="0.0" length="4.0">
+            <geometry s="0.0000000000000000e+00" x="@(road_4_start[0])@\" y="@(road_4_start[1])@\" hdg="0.0" length="@(road_4_length)@\">
                 <line/>
             </geometry>
         </planView>
@@ -311,12 +334,12 @@ if crosswalk:
         <signals>
         </signals>
     </road>
-    <road name="Road 2" length="98.0" id="2" junction="-1">
+    <road name="Road 2" length="@(road_2_length)@\" id="2" junction="-1">
         <link>
           <predecessor elementType="junction" elementId="2"/>
         </link>
         <planView>
-            <geometry s="0.0000000000000000e+00" x="102.0" y="0.0" hdg="0.0" length="98.0">
+            <geometry s="0.0000000000000000e+00" x="@(road_2_start[0])@\" y="@(road_2_start[1])@\" hdg="0.0" length="@(road_2_length)@\">
                 <line/>
             </geometry>
         </planView>

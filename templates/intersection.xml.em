@@ -47,7 +47,9 @@ def sqrtdistance(p1:list, p2:list):
 LAT_0 = 37.4168716
 LON_0 = -122.1030492
 
-
+# Origin offset
+x_offset = str2float(os.environ['X_OFFSET']) if 'X_OFFSET' in os.environ  else 0.0
+y_offset = str2float(os.environ['Y_OFFSET']) if 'Y_OFFSET' in os.environ  else 0.0
 # Width of the lanes
 width = str2float(os.environ['WIDTH']) if 'WIDTH' in os.environ  else 3.0
 # Radius of the junction
@@ -71,17 +73,17 @@ crosswalk_length = str2float(os.environ['CROSSWALK_LENGTH']) if 'CROSSWALK_LENGT
 #          |
 #          4
 #
-road_1_start = [0., 0.]
-road_1_end = [100., 0.]
+road_1_start = [0. + x_offset, 0. + y_offset]
+road_1_end = [100. + x_offset, 0. + y_offset]
 
-road_2_start = [100. + radius + width, 100. + radius + width]
-road_2_end   = [100. + radius + width, radius + width]
+road_2_start = [100. + radius + width + x_offset, 100. + radius + width + y_offset]
+road_2_end   = [100. + radius + width + x_offset,        radius + width + y_offset]
 
-road_3_start = [100. + 2*radius + 2*width + 100., 0.]
-road_3_end   = [100. + 2*radius + 2*width       , 0.]
+road_3_start = [100. + 2*radius + 2*width + 100. + x_offset, 0. + y_offset]
+road_3_end   = [100. + 2*radius + 2*width        + x_offset, 0. + y_offset]
 
-road_4_start = [100. + radius + width, -100. - radius - width]
-road_4_end   = [100. + radius + width, -radius - width]
+road_4_start = [100. + radius + width + x_offset, -100. - radius - width + y_offset]
+road_4_end   = [100. + radius + width + x_offset,       - radius - width + y_offset]
 
 # Junction roads
 
