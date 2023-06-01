@@ -73,6 +73,10 @@ For the creation of the submaps with the correspondent offset. The X_OFFSET and 
   ```
   X_OFFSET=0. Y_OFFSET=-150. CROSSWALK=False WIDTH=3. empy3 templates/intersection.xml.em
   ```
+- sub_map_8
+  ```
+  X_OFFSET=250. Y_OFFSET=-150. CROSSWALK=False WIDTH=3.5 empy3 templates/intersection.xml.em
+  ```
 
 
 
