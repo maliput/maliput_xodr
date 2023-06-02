@@ -35,7 +35,7 @@ sub_map_1 ----- sub_map_2 ----- sub_map_3 ----- sub_map_4 ----- sub_map_5 ----- 
 sub_map_7 ----- sub_map_8 ----- sub_map_9 ----- sub_map_10 ----- sub_map_11 ----- sub_map_12
 ```
 
- - The submaps aren't connected each other.
+ - The submaps aren't connected to each other.
 
 ### Procedure for creating the large map
 
@@ -43,8 +43,8 @@ For creating the map the following steps were taken.
 
 1. Create the 12 submaps with the correspondent offset in a way that when merged no overlapping occurs
 2. Adapt the road ids and junction ids to avoid any kind of clashing among ids.
-3. Merge all OpenDRIVE description into one.
-4. Merge all GeoJSON description into one.
+3. Merge all OpenDRIVE descriptions into one.
+4. Merge all GeoJSON descriptions into one.
 
 #### Creation of submaps
 
