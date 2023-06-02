@@ -3,7 +3,7 @@
 
 The 12_map_integration map is composed of 12 submaps.
 
-<img src="../../docs/12_map_integration.jpg" width=500>
+<img src="../../docs/12_map_integration.png" width=500>
 
 ### Submaps
 
@@ -53,27 +53,27 @@ For the creation of the submaps with the correspondent offset. The X_OFFSET and 
 
 - sub_map_1
   ```
-  X_OFFSET=0. Y_OFFSET=0. CROSSWALK=False WIDTH=3. empy3 templates/straight_forward.xml.em
+  X_OFFSET=0. Y_OFFSET=0. LENGTH=500. CROSSWALK=False WIDTH=3. empy3 templates/straight_forward.xml.em
   ```
 - sub_map_2
   ```
-  X_OFFSET=210. Y_OFFSET=0. CROSSWALK=False WIDTH=3.5 empy3 templates/straight_forward.xml.em
+  X_OFFSET=510. Y_OFFSET=0. LENGTH=500. CROSSWALK=False WIDTH=3.5 empy3 templates/straight_forward.xml.em
   ```
 - sub_map_3
   ```
-  X_OFFSET=420. Y_OFFSET=0. CROSSWALK=False WIDTH=4. empy3 templates/straight_forward.xml.em
+  X_OFFSET=1020. Y_OFFSET=0. LENGTH=500. CROSSWALK=False WIDTH=4. empy3 templates/straight_forward.xml.em
   ```
 - sub_map_4
   ```
-  X_OFFSET=630. Y_OFFSET=0. CROSSWALK=True WIDTH=3. empy3 templates/straight_forward.xml.em
+  X_OFFSET=1530. Y_OFFSET=0. LENGTH=500. CROSSWALK=True WIDTH=3. empy3 templates/straight_forward.xml.em
   ```
 - sub_map_5
   ```
-  X_OFFSET=840. Y_OFFSET=0. CROSSWALK=True WIDTH=3.5 empy3 templates/straight_forward.xml.em
+  X_OFFSET=2040. Y_OFFSET=0. LENGTH=500. CROSSWALK=True WIDTH=3.5 empy3 templates/straight_forward.xml.em
   ```
 - sub_map_6
   ```
-  X_OFFSET=1050. Y_OFFSET=0. CROSSWALK=True WIDTH=4. empy3 templates/straight_forward.xml.em
+  X_OFFSET=2550. Y_OFFSET=0. LENGTH=500. CROSSWALK=True WIDTH=4. empy3 templates/straight_forward.xml.em
   ```
 - sub_map_7
   ```
