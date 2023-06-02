@@ -43,7 +43,7 @@ def str2bool(string):
 def str2float(string):
   return float(string)
 
-length = str2float(os.environ['LENGTH']) if 'LENGTH' in os.environ  else 200.0
+length = str2float(os.environ['LENGTH']) if 'LENGTH' in os.environ  else 500.0
 x_offset = str2float(os.environ['X_OFFSET']) if 'X_OFFSET' in os.environ  else 0.0
 y_offset = str2float(os.environ['Y_OFFSET']) if 'Y_OFFSET' in os.environ  else 0.0
 width = str2float(os.environ['WIDTH']) if 'WIDTH' in os.environ  else 3.0

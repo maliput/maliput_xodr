@@ -23,7 +23,7 @@ Description:
 
 
 Options:
- - `LENGTH`: Length of the road(default 200m).
+ - `LENGTH`: Length of the road(default 500m).
  - `WIDTH`: Width of the lanes(default 3m).
  - `CROSSWALK`: Adds a 2m-width crosswalk in the middle(s=100m).(default=`False`)
  - `X_OFFSET`: X offset with respect to the origin.
