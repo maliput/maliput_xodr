@@ -1,7 +1,7 @@
 ## 12_map_integration map
 
 
-The 12_map_integration map is composed by 12 submaps.
+The 12_map_integration map is composed of 12 submaps.
 
 <img src="../../docs/12_map_integration.jpg" width=500>
 
