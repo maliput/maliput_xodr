@@ -207,6 +207,8 @@ if crosswalk:
   - RADIUS: @(radius)@ 
   - CROSSWALK: @(crosswalk)@ 
   - CROSSWALK_LENGTH: @(crosswalk_length)@ 
+  - OFFSET_X: @(x_offset)@ 
+  - OFFSET_Y: @(y_offset)@ 
 -->
 <OpenDRIVE>
     <header revMajor="1" revMinor="1" name="StraightRoad" version="1.00" date="Fri Apr 28 12:00:00 2023" north="0.0000000000000000e+00" south="0.0000000000000000e+00" east="0.0000000000000000e+00" west="0.0000000000000000e+00" maxRoad="2" maxJunc="0" maxPrg="0">

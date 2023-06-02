@@ -35,6 +35,8 @@
   - RADIUS: 8.0
   - CROSSWALK: False
   - CROSSWALK_LENGTH: 2.0
+  - OFFSET_X: 0.0
+  - OFFSET_Y: 0.0
 -->
 <OpenDRIVE>
     <header revMajor="1" revMinor="1" name="StraightRoad" version="1.00" date="Fri Apr 28 12:00:00 2023" north="0.0000000000000000e+00" south="0.0000000000000000e+00" east="0.0000000000000000e+00" west="0.0000000000000000e+00" maxRoad="2" maxJunc="0" maxPrg="0">
