@@ -56,4 +56,14 @@ WIDTH=4 RADIUS=8 CROSSWALK=True CROSSWALK_LENGTH=2 empy3 templates/intersection.
 
 ## Resources
 
-Example files with different values are provided under the `resources` folder. 
+Example files with different values are provided under the `resources` folder.
+
+## Standalone maps
+
+Standalone maps that do not correspond to a particular template are added in the `standalone` folder.
+
+ - [12_map_integration](standalone/12_map_integration/) map:
+    A large-combined map was created out of the available `resources`.
+    See [12_map_integration/README](standalone/12_map_integration/README.md) for more information about the map creation process.
+
+    <img src="docs/12_map_integration.jpg" width=500>
