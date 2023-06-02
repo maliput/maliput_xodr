@@ -43,6 +43,7 @@ def str2bool(string):
 def str2float(string):
   return float(string)
 
+length = str2float(os.environ['LENGTH']) if 'LENGTH' in os.environ  else 200.0
 x_offset = str2float(os.environ['X_OFFSET']) if 'X_OFFSET' in os.environ  else 0.0
 y_offset = str2float(os.environ['Y_OFFSET']) if 'Y_OFFSET' in os.environ  else 0.0
 width = str2float(os.environ['WIDTH']) if 'WIDTH' in os.environ  else 3.0
@@ -80,7 +81,7 @@ if crosswalk:
 
   ## Roads coordinates
   # Road 1
-  road_1_length = 98.0
+  road_1_length = length/2.0 - 2.0
   road_1_start = [x_offset, y_offset]
   road_1_end = [road_1_length + road_1_start[0], road_1_start[1]]
 
@@ -112,15 +113,23 @@ if crosswalk:
   crosswalk_points_lon_lat.append(crosswalk_points_lon_lat[0]) # GeoJSON format needs closure
 
 }@
+<!--
+ Map generated using:
+  - LENGTH: @(length)@ 
+  - WIDTH: @(width)@ 
+  - CROSSWALK: @(crosswalk)@ 
+  - OFFSET_X: @(x_offset)@ 
+  - OFFSET_Y: @(y_offset)@ 
+-->
 <OpenDRIVE>
     <header revMajor="1" revMinor="1" name="StraightRoad" version="1.00" date="Fri Apr 28 12:00:00 2023" north="0.0000000000000000e+00" south="0.0000000000000000e+00" east="0.0000000000000000e+00" west="0.0000000000000000e+00" maxRoad="2" maxJunc="0" maxPrg="0">
         <geoReference><![CDATA[+proj=tmerc +lat_0=@(LAT_0)@  +lon_0=@(LON_0)@  +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +vunits=m +no_defs ]]></geoReference>
     </header>
-    @[if not crosswalk]<road name="Road 1" length="200.0" id="1" junction="-1">
+    @[if not crosswalk]<road name="Road 1" length="@(length)@\" id="1" junction="-1">
         <link>
         </link>
         <planView>
-            <geometry s="0.0000000000000000e+00" x="@(x_offset)@\" y="@(y_offset)@\" hdg="0.0" length="200.0">
+            <geometry s="0.0000000000000000e+00" x="@(x_offset)@\" y="@(y_offset)@\" hdg="0.0" length="@(length)@\">
                 <line/>
             </geometry>
         </planView>
