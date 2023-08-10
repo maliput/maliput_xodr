@@ -99,3 +99,12 @@ For the creation of the submaps with the correspondent offset. The X_OFFSET and 
   ```
   X_OFFSET=1250. Y_OFFSET=-150. CROSSWALK=True WIDTH=4. empy3 templates/intersection.xml.em
   ```
+
+###
+
+There are two GeoJSON files:
+
+1. 12_map_integration.xodr.geojson - contains crosswalks with no stop signs
+2. 12_map_integration_with_stop_signs.xodr.geojson - contains crosswalks with stop signs.
+
+Either of the above GeoJSON files can be used with 12_map_integration.xodr.
