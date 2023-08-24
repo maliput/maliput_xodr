@@ -30,16 +30,25 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 <!--
- Map generated using:
+ Map generated using https://github.com/maliput/maliput_xodr.
+ Generated using the following parameters:
   - WIDTH: 3.0
+    - Indicates the width of the lane
   - RADIUS: 8.0
+    - Indicates the radius of the intersection
   - CROSSWALK: True
+    - Indicates if crosswalks are generated
   - CROSSWALK_LENGTH: 2.0
+    - Indicates the length of the crosswalks
+  - STOPLINE: False
+    - Indicates if stoplines are generated(for east west directions only)(it only affects geoJSON info)
   - OFFSET_X: 0.0
+    - Indicates the offset in the x axis of the openDRIVE map
   - OFFSET_Y: 0.0
+    - Indicates the offset in the y axis of the openDRIVE map
 -->
 <OpenDRIVE>
-    <header revMajor="1" revMinor="1" name="StraightRoad" version="1.00" date="Fri Apr 28 12:00:00 2023" north="0.0000000000000000e+00" south="0.0000000000000000e+00" east="0.0000000000000000e+00" west="0.0000000000000000e+00" maxRoad="2" maxJunc="0" maxPrg="0">
+    <header revMajor="1" revMinor="1" name="Intersection" version="1.00" date="Fri Apr 28 12:00:00 2023" north="0.0000000000000000e+00" south="0.0000000000000000e+00" east="0.0000000000000000e+00" west="0.0000000000000000e+00" maxRoad="2" maxJunc="0" maxPrg="0">
         <geoReference><![CDATA[+proj=tmerc +lat_0=37.4168716 +lon_0=-122.1030492 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +vunits=m +no_defs ]]></geoReference>
     </header>
     <road name="Road 1" length="100.0" id="1" junction="-1">
@@ -659,6 +668,7 @@ Generated GeoJSON can be verified using: https://geojson.io
 
 {
   "features": [
+
     {
       "geometry": {
         "coordinates": [
@@ -815,6 +825,7 @@ Generated GeoJSON can be verified using: https://geojson.io
       },
       "type": "Feature"
     }
+
   ],
   "type": "FeatureCollection"
 }
