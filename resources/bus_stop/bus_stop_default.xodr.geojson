@@ -1,0 +1,91 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -122.10311697894959,
+            37.417141905623936,
+            0.0
+          ],
+          [
+            -122.10311697907139,
+            37.41727705844098,
+            0.0
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "Id": "{d81acea1-64d2-41f9-a3c8-45219a8cfe5c}",
+        "LaneType": "Special 1",
+        "LeftBoundary": {
+          "Dir": "Forward",
+          "Id": "{1b53c969-b359-4b8c-999f-c97deaa0d9d1}"
+        },
+        "RightBoundary": {
+          "Dir": "Forward",
+          "Id": "{710adace-3f83-4ac7-880d-426d55f9b36f}"
+        },
+        "Predecessors": [],
+        "Successors": [],
+        "TravelDir": "Undirected",
+        "Type": "Lane"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -122.1030943859664,
+            37.41714190563473,
+            0.0
+          ],
+          [
+            -122.10309438604759,
+            37.41727705845177,
+            0.0
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "Id": "{710adace-3f83-4ac7-880d-426d55f9b36f}",
+        "RightLane": {
+          "Dir": "Forward",
+          "Id": "{bus_lane_id}"
+        },
+        "Type": "LaneBoundary"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            -122.10313957193277,
+            37.41714190560882,
+            0.0
+          ],
+          [
+            -122.10313957209516,
+            37.41727705842587,
+            0.0
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "Id": "{1b53c969-b359-4b8c-999f-c97deaa0d9d1}",
+        "LeftLane": {
+          "Dir": "Forward",
+          "Id": "{bus_lane_id}"
+        },
+        "Type": "LaneBoundary"
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}

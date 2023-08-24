@@ -21,3 +21,6 @@ WIDTH=4 CROSSWALK=True CROSSWALK_LENGTH=2 empy3 ${script_dir}/../templates/inter
 WIDTH=3 CROSSWALK=False CROSSWALK_LENGTH=2 empy3 ${script_dir}/../templates/intersection.xml.em > ${script_dir}/../resources/intersection/intersection_3m_width.xodr
 WIDTH=3.5 CROSSWALK=False CROSSWALK_LENGTH=2 empy3 ${script_dir}/../templates/intersection.xml.em > ${script_dir}/../resources/intersection/intersection_3_5m_width.xodr
 WIDTH=4 CROSSWALK=False CROSSWALK_LENGTH=2 empy3 ${script_dir}/../templates/intersection.xml.em > ${script_dir}/../resources/intersection/intersection_4m_width.xodr
+
+# Generates bus stop resources
+empy3 ${script_dir}/../templates/bus_stop.xml.em > ${script_dir}/../resources/bus_stop/bus_stop_default.xodr
