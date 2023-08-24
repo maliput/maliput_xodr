@@ -55,6 +55,25 @@ For generating a XODR file by using this template simply execute:
 WIDTH=4 RADIUS=8 CROSSWALK=True CROSSWALK_LENGTH=2 empy3 templates/intersection.xml.em > generated_file.xodr
 ```
 
+### T-Intersection
+Description:
+ - 3 road intersection
+
+<img src="docs/t_intersection.png" width=500>
+
+Options:
+ - `WIDTH`: Width of the lanes(default 3.3m).
+ - `RADIUS`: Radius of the junction's border(default 6m).
+ - `EXTENSIONS_LENGTH`: Indicates the length of the lead-in and lead-out roads(default 50m).
+ - `X_OFFSET`: X offset with respect to the origin.
+ - `Y_OFFSET`: Y offset with respect to the origin.
+
+For generating a XODR file by using this template simply execute:
+
+```sh
+WIDTH=3.3 RADIUS=6 empy3 templates/t_intersection.xml.em > generated_file.xodr
+```
+
 ## Resources
 
 Example files with different values are provided under the `resources` folder.
