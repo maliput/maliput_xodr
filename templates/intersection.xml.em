@@ -58,7 +58,8 @@ radius = str2float(os.environ['RADIUS']) if 'RADIUS' in os.environ else 8.0
 crosswalk = str2bool(os.environ['CROSSWALK']) if 'CROSSWALK' in os.environ else False
 # crosswalk length
 crosswalk_length = str2float(os.environ['CROSSWALK_LENGTH']) if 'CROSSWALK_LENGTH' in os.environ else 2.0
-
+# stopline
+stopline = str2bool(os.environ['STOPLINE']) if 'STOPLINE' in os.environ else False
 
 # No junction roads
 #          2
@@ -116,31 +117,7 @@ road_10_radius = radius + width
 road_10_curvature = 1./road_10_radius
 road_10_length = road_10_radius * m.pi / 2. # 90 degrees of curvature
 
-if crosswalk:
-  ## Crosswalk config
-  def quadratic_solver(a, b, c):
-      delta = b * b - 4 * a * c
-      if delta < 0:
-          return None
-      elif delta == 0:
-          return [-b / (2 * a), -b / (2 * a)]
-      else:
-          return [(-b + m.sqrt(delta)) / (2 * a), (-b - m.sqrt(delta)) / (2 * a)]
-
-  ## Using the quadratic formula to find the extrusion length of the crosswalk.
-  ## This is calculated combining the arc length with circunference equation.
-  b = 2 * radius
-  c = crosswalk_length * crosswalk_length
-  roots_left = quadratic_solver(1, b, c)
-  roots_right = quadratic_solver(1, -b, c)
-  if roots_left is None or roots_right is None:
-      raise Exception("Error: Probably the crosswalk length is too long for the given radius")
-  extrusion_right = abs(min(roots_right))
-  extrusion_left = abs(max(roots_left))
-  # by symetry the abs value of left and right extrusion are equal
-  assert abs(extrusion_left - extrusion_right) < 1e-6
-
-
+if crosswalk or stopline:
   import pyproj
   def cartesian_to_geodetic(x, y, z, origin_lon, origin_lat):
       # Define the projection systems
@@ -163,55 +140,104 @@ if crosswalk:
       lon_lat_points.append(lon_lat_points[0]) # GeoJSON format needs closure
       return lon_lat_points
 
-  ## Calculate corners of the crosswalk
-  ## West Crosswalk
-  crosswalk_west_points = [[road_5_start[0], road_5_start[1] + width],
-                           [road_5_start[0], road_5_start[1] - width],
-                           [road_5_start[0] + crosswalk_length, road_5_start[1] - width - extrusion_right],
-                           [road_5_start[0] + crosswalk_length, road_5_start[1] + width + extrusion_left],
-                          ]
+  def quadratic_solver(a, b, c):
+      delta = b * b - 4 * a * c
+      if delta < 0:
+          return None
+      elif delta == 0:
+          return [-b / (2 * a), -b / (2 * a)]
+      else:
+          return [(-b + m.sqrt(delta)) / (2 * a), (-b - m.sqrt(delta)) / (2 * a)]
 
-  crosswalk_west_points_lon_lat = to_lon_lat_points(crosswalk_west_points)
+  if crosswalk:
+    ################
+    ## CROSSWALKS ##
+    ################
 
-  ## East Crosswalk
-  crosswalk_east_points = [[road_5_end[0] - crosswalk_length, road_5_end[1] + width + extrusion_left],
-                           [road_5_end[0] - crosswalk_length, road_5_end[1] - width - extrusion_left],
-                           [road_5_end[0], road_5_end[1] - width],
-                           [road_5_end[0], road_5_end[1] + width],
-                          ]
+    ## Using the quadratic formula to find the extrusion length of the crosswalk.
+    ## This is calculated combining the arc length with circunference equation.
+    b = 2 * radius
+    c = crosswalk_length * crosswalk_length
+    roots_left = quadratic_solver(1, b, c)
+    roots_right = quadratic_solver(1, -b, c)
+    if roots_left is None or roots_right is None:
+        raise Exception("Error: Probably the crosswalk length is too long for the given radius")
+    extrusion_right = abs(min(roots_right))
+    extrusion_left = abs(max(roots_left))
+    # by symetry the abs value of left and right extrusion are equal
+    assert abs(extrusion_left - extrusion_right) < 1e-6
 
-  crosswalk_east_points_lon_lat = to_lon_lat_points(crosswalk_east_points)
+    ## Calculate corners of the crosswalk
+    ## West Crosswalk
+    crosswalk_west_points = [[road_5_start[0], road_5_start[1] + width],
+                            [road_5_start[0], road_5_start[1] - width],
+                            [road_5_start[0] + crosswalk_length, road_5_start[1] - width - extrusion_right],
+                            [road_5_start[0] + crosswalk_length, road_5_start[1] + width + extrusion_left],
+                            ]
 
-  ## North Crosswalk
-  crosswalk_north_points = [[road_6_start[0] + width, road_6_start[1]],
-                           [road_6_start[0] - width, road_6_start[1]],
-                           [road_6_start[0] - width - extrusion_right, road_6_start[1] - crosswalk_length],
-                           [road_6_start[0] + width + extrusion_left, road_6_start[1] - crosswalk_length],
-                          ]
 
-  crosswalk_north_points_lon_lat = to_lon_lat_points(crosswalk_north_points)
+    ## East Crosswalk
+    crosswalk_east_points = [[road_5_end[0] - crosswalk_length, road_5_end[1] + width + extrusion_left],
+                            [road_5_end[0] - crosswalk_length, road_5_end[1] - width - extrusion_left],
+                            [road_5_end[0], road_5_end[1] - width],
+                            [road_5_end[0], road_5_end[1] + width],
+                            ]
 
-  ## South Crosswalk
-  crosswalk_south_points = [[road_6_end[0] + width + extrusion_left, road_6_end[1] + crosswalk_length],
-                           [road_6_end[0] - width - extrusion_left , road_6_end[1] + crosswalk_length],
-                           [road_6_end[0] - width, road_6_end[1]],
-                           [road_6_end[0] + width, road_6_end[1]],
-                          ]
 
-  crosswalk_south_points_lon_lat = to_lon_lat_points(crosswalk_south_points)
+    ## North Crosswalk
+    crosswalk_north_points = [[road_6_start[0] + width, road_6_start[1]],
+                            [road_6_start[0] - width, road_6_start[1]],
+                            [road_6_start[0] - width - extrusion_right, road_6_start[1] - crosswalk_length],
+                            [road_6_start[0] + width + extrusion_left, road_6_start[1] - crosswalk_length],
+                            ]
 
+
+    ## South Crosswalk
+    crosswalk_south_points = [[road_6_end[0] + width + extrusion_left, road_6_end[1] + crosswalk_length],
+                            [road_6_end[0] - width - extrusion_left , road_6_end[1] + crosswalk_length],
+                            [road_6_end[0] - width, road_6_end[1]],
+                            [road_6_end[0] + width, road_6_end[1]],
+                            ]
+    crosswalk_west_points_lon_lat = to_lon_lat_points(crosswalk_west_points)
+    crosswalk_east_points_lon_lat = to_lon_lat_points(crosswalk_east_points)
+    crosswalk_north_points_lon_lat = to_lon_lat_points(crosswalk_north_points)
+    crosswalk_south_points_lon_lat = to_lon_lat_points(crosswalk_south_points)
+
+  if stopline:
+    ###############
+    ## STOPLINES ##
+    ###############
+    stopline_west_points = [
+      [road_1_end[0], road_1_end[1] + width],
+      [road_1_end[0], road_1_end[1]],
+    ]
+    stopline_east_points = [
+      [road_3_end[0], road_3_end[1] - width],
+      [road_3_end[0], road_3_end[1]],
+    ]
+    stopline_west_points_lon_lat = to_lon_lat_points(stopline_west_points)
+    stopline_east_points_lon_lat = to_lon_lat_points(stopline_east_points)
 }@
 <!--
- Map generated using:
+ Map generated using https://github.com/maliput/maliput_xodr.
+ Generated using the following parameters:
   - WIDTH: @(width)@ 
+    - Indicates the width of the lane
   - RADIUS: @(radius)@ 
+    - Indicates the radius of the intersection
   - CROSSWALK: @(crosswalk)@ 
+    - Indicates if crosswalks are generated
   - CROSSWALK_LENGTH: @(crosswalk_length)@ 
+    - Indicates the length of the crosswalks
+  - STOPLINE: @(stopline)@ 
+    - Indicates if stoplines are generated(for east west directions only)(it only affects geoJSON info)
   - OFFSET_X: @(x_offset)@ 
+    - Indicates the offset in the x axis of the openDRIVE map
   - OFFSET_Y: @(y_offset)@ 
+    - Indicates the offset in the y axis of the openDRIVE map
 -->
 <OpenDRIVE>
-    <header revMajor="1" revMinor="1" name="StraightRoad" version="1.00" date="Fri Apr 28 12:00:00 2023" north="0.0000000000000000e+00" south="0.0000000000000000e+00" east="0.0000000000000000e+00" west="0.0000000000000000e+00" maxRoad="2" maxJunc="0" maxPrg="0">
+    <header revMajor="1" revMinor="1" name="Intersection" version="1.00" date="Fri Apr 28 12:00:00 2023" north="0.0000000000000000e+00" south="0.0000000000000000e+00" east="0.0000000000000000e+00" west="0.0000000000000000e+00" maxRoad="2" maxJunc="0" maxPrg="0">
         <geoReference><![CDATA[+proj=tmerc +lat_0=@(LAT_0)@  +lon_0=@(LON_0)@  +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +vunits=m +no_defs ]]></geoReference>
     </header>
     <road name="Road 1" length="100.0" id="1" junction="-1">
@@ -827,7 +853,7 @@ if crosswalk:
         </connection>
     </junction>
 </OpenDRIVE>
-@[if crosswalk]
+@[if crosswalk or stopline]
 <!-- GeoJSON information for the crosswalks
 Generated GeoJSON can be verified using: https://geojson.io
 @{
@@ -835,6 +861,7 @@ Generated GeoJSON can be verified using: https://geojson.io
 
 {
   "features": [
+@[if crosswalk]
     {
       "geometry": {
         "coordinates": [
@@ -918,7 +945,47 @@ Generated GeoJSON can be verified using: https://geojson.io
           "Type": "Crosswalk"
       },
       "type": "Feature"
+    }@[if (stopline)],@[end if]
+@[end if]@[if stopline]
+    {
+      "geometry": {
+        "coordinates": [
+@[for idx, lon_lat_z in enumerate(stopline_west_points_lon_lat)]@
+          [
+            @(lon_lat_z[0]),
+            @(lon_lat_z[1]),
+            @(lon_lat_z[2])
+          ]@[if (idx != len(stopline_west_points_lon_lat)-1)],@[end if]
+@[end for ]@
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "Id": "{ba11d4ae-3784-11ee-be56-0242ac120002}",
+        "Type": "Stopline"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+@[for idx, lon_lat_z in enumerate(stopline_east_points_lon_lat)]@
+          [
+            @(lon_lat_z[0]),
+            @(lon_lat_z[1]),
+            @(lon_lat_z[2])
+          ]@[if (idx != len(stopline_east_points_lon_lat)-1)],@[end if]
+@[end for ]@
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "Id": "{ba11d7ce-3784-11ee-be56-0242ac120002}",
+        "Type": "Stopline"
+      },
+      "type": "Feature"
     }
+@[end if]
   ],
   "type": "FeatureCollection"
 }
