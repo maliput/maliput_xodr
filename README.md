@@ -74,6 +74,24 @@ For generating a XODR file by using this template simply execute:
 WIDTH=3.3 RADIUS=6 empy3 templates/t_intersection.xml.em > generated_file.xodr
 ```
 
+### Curved Road
+Description:
+ - 2 curved non-connected roads
+
+<img src="docs/curved_road.png" width=500>
+
+Options:
+ - `WIDTH`: Width of the lanes(default 3.5m).
+ - `RADIUS`: Radius of the curved section(default 12m).
+ - `LENGTH_STRAIGHT`: Length of the straight section(default 20m).
+ - `GAP`: Distance between roads(default 1m).
+ - `X_OFFSET`: X offset with respect to the origin.
+ - `Y_OFFSET`: Y offset with respect to the origin.
+
+```sh
+LENGTH_STRAIGHT=25 RADIUS=15 GAP=5 empy3 templates/curved_road.xml.em > generated_file.xodr
+```
+
 ## Resources
 
 Example files with different values are provided under the `resources` folder.
