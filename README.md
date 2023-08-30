@@ -59,7 +59,7 @@ WIDTH=4 RADIUS=8 CROSSWALK=True CROSSWALK_LENGTH=2 empy3 templates/intersection.
 Description:
  - A two-way road with a bus stop
    - Modelled as an extra lane of lane type: `special1`
- - geoJSON information is added for the bus stop only.
+ - geoJSON information is added for the bus stop lane only.
 
 <img src="docs/bus_stop_lane.png" width=300>
 
@@ -67,13 +67,14 @@ Options:
  - `WIDTH`: Width of the lanes(default 4m).
  - `EXTENSIONS_LENGTH`: Length of the outer lane sections(default 30m).
  - `BUS_STOP_LENGTH`: Length of the bus stop lane(default 15m).
+ - `MERGE_LENGTH`: Length of the merge lane connecting to the bust stop lane (10m).
  - `X_OFFSET`: X offset with respect to the origin.
  - `Y_OFFSET`: Y offset with respect to the origin.
 
 For generating a XODR file by using this template simply execute:
 
 ```sh
-WIDTH=4 empy3 templates/bus_stop.xml.em > generated_file.xodr
+WIDTH=4 EXTENSIONS_LENGTH=30 BUS_STOP_LENGTH=15 MERGE_LENGTH=10 empy3 templates/bus_stop.xml.em > generated_file.xodr
 ```
 
 ## Resources
