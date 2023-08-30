@@ -32,16 +32,12 @@
 <!--
  Map generated using https://github.com/maliput/maliput_xodr.
  Generated using the following parameters:
-  - WIDTH: 4.0
+  - WIDTH: 3.3
     - Indicates the width of the lane
-  - RADIUS: 8.0
+  - RADIUS: 6.0
     - Indicates the radius of the intersection
-  - CROSSWALK: False
-    - Indicates if crosswalks are generated
-  - CROSSWALK_LENGTH: 2.0
-    - Indicates the length of the crosswalks
-  - STOPLINE: False
-    - Indicates if stoplines are generated(for east west directions only)(it only affects geoJSON info)
+  - EXTENSIONS_LENGTH: 50.0
+    - Indicates the length of the lead-in and lead-out roads.
   - OFFSET_X: 0.0
     - Indicates the offset in the x axis of the openDRIVE map
   - OFFSET_Y: 0.0
@@ -51,12 +47,12 @@
     <header revMajor="1" revMinor="1" name="Intersection" version="1.00" date="Fri Apr 28 12:00:00 2023" north="0.0000000000000000e+00" south="0.0000000000000000e+00" east="0.0000000000000000e+00" west="0.0000000000000000e+00" maxRoad="2" maxJunc="0" maxPrg="0">
         <geoReference><![CDATA[+proj=tmerc +lat_0=37.4168716 +lon_0=-122.1030492 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +vunits=m +no_defs ]]></geoReference>
     </header>
-    <road name="Road 1" length="100.0" id="1" junction="-1">
+    <road name="Road 1" length="50.0" id="1" junction="-1">
         <link>
             <successor elementType="junction" elementId="2"/>
         </link>
         <planView>
-            <geometry s="0.0000000000000000e+00" x="0.0" y="0.0" hdg="0.0" length="100.0">
+            <geometry s="0.0000000000000000e+00" x="0.0" y="0.0" hdg="0.0" length="50.0">
                 <line/>
             </geometry>
         </planView>
@@ -70,7 +66,7 @@
                     <lane id="1" type="driving" level= "0">
                         <link>
                         </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
+                        <width sOffset="0.0000000000000000e+00" a="3.3" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
                         <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
                         <userData>
                             <vectorLane travelDir="forward"/>
@@ -88,7 +84,7 @@
                     <lane id="-1" type="driving" level= "0">
                         <link>
                         </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
+                        <width sOffset="0.0000000000000000e+00" a="3.3" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
                         <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
                         <userData>
                             <vectorLane travelDir="backward"/>
@@ -98,12 +94,12 @@
             </laneSection>
         </lanes>
     </road>
-    <road name="Road 2" length="100.0" id="2" junction="-1">
+    <road name="Road 2" length="50.0" id="2" junction="-1">
         <link>
             <successor elementType="junction" elementId="2"/>
         </link>
         <planView>
-            <geometry s="0.0000000000000000e+00" x="112.0" y="112.0" hdg="-1.5707963267948966" length="100.0">
+            <geometry s="0.0000000000000000e+00" x="59.3" y="59.3" hdg="-1.5707963267948966" length="50.0">
                 <line/>
             </geometry>
         </planView>
@@ -117,7 +113,7 @@
                     <lane id="1" type="driving" level= "0">
                         <link>
                         </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
+                        <width sOffset="0.0000000000000000e+00" a="3.3" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
                         <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
                         <userData>
                             <vectorLane travelDir="forward"/>
@@ -135,7 +131,7 @@
                     <lane id="-1" type="driving" level= "0">
                         <link>
                         </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
+                        <width sOffset="0.0000000000000000e+00" a="3.3" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
                         <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
                         <userData>
                             <vectorLane travelDir="backward"/>
@@ -145,12 +141,12 @@
             </laneSection>
         </lanes>
     </road>
-    <road name="Road 3" length="100.0" id="3" junction="-1">
+    <road name="Road 4" length="50.0" id="4" junction="-1">
         <link>
             <successor elementType="junction" elementId="2"/>
         </link>
         <planView>
-            <geometry s="0.0000000000000000e+00" x="224.0" y="0.0" hdg="-3.141592653589793" length="100.0">
+            <geometry s="0.0000000000000000e+00" x="59.3" y="-59.3" hdg="1.5707963267948966" length="50.0">
                 <line/>
             </geometry>
         </planView>
@@ -164,7 +160,7 @@
                     <lane id="1" type="driving" level= "0">
                         <link>
                         </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
+                        <width sOffset="0.0000000000000000e+00" a="3.3" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
                         <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
                         <userData>
                             <vectorLane travelDir="forward"/>
@@ -182,7 +178,7 @@
                     <lane id="-1" type="driving" level= "0">
                         <link>
                         </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
+                        <width sOffset="0.0000000000000000e+00" a="3.3" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
                         <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
                         <userData>
                             <vectorLane travelDir="backward"/>
@@ -192,114 +188,13 @@
             </laneSection>
         </lanes>
     </road>
-    <road name="Road 4" length="100.0" id="4" junction="-1">
-        <link>
-            <successor elementType="junction" elementId="2"/>
-        </link>
-        <planView>
-            <geometry s="0.0000000000000000e+00" x="112.0" y="-112.0" hdg="1.5707963267948966" length="100.0">
-                <line/>
-            </geometry>
-        </planView>
-        <elevationProfile>
-        </elevationProfile>
-        <lateralProfile>
-        </lateralProfile>
-        <lanes>
-            <laneSection s="0.0000000000000000e+00">
-                <left>
-                    <lane id="1" type="driving" level= "0">
-                        <link>
-                        </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
-                        <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
-                        <userData>
-                            <vectorLane travelDir="forward"/>
-                        </userData>
-                    </lane>
-                </left>
-                <center>
-                    <lane id="0" type="none" level= "0">
-                        <link>
-                        </link>
-                        <roadMark sOffset="0.0000000000000000e+00" type="broken" weight="standard" color="standard" width="1.3000000000000000e-01"/>
-                    </lane>
-                </center>
-                <right>
-                    <lane id="-1" type="driving" level= "0">
-                        <link>
-                        </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
-                        <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
-                        <userData>
-                            <vectorLane travelDir="backward"/>
-                        </userData>
-                    </lane>
-                </right>
-            </laneSection>
-        </lanes>
-    </road>
-    <road name="Road 5" length="24.0" id="5" junction="2">
-        <link>
-            <predecessor elementType="road" elementId="1" contactPoint="end"/>
-            <successor elementType="road" elementId="3" contactPoint="end"/>
-        </link>
-        <planView>
-            <geometry s="0.0000000000000000e+00" x="100.0" y="0.0" hdg="0.0" length="24.0">
-                <line/>
-            </geometry>
-        </planView>
-        <elevationProfile>
-        </elevationProfile>
-        <lateralProfile>
-        </lateralProfile>
-        <lanes>
-            <laneSection s="0.0000000000000000e+00">
-                <left>
-                    <lane id="1" type="driving" level= "0">
-                        <link>
-                            <predecessor id="1"/>
-                            <successor id="-1"/>
-                        </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
-                        <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
-                        <userData>
-                            <vectorLane travelDir="forward"/>
-                        </userData>
-                    </lane>
-                </left>
-                <center>
-                    <lane id="0" type="none" level= "0">
-                        <link>
-                        </link>
-                        <roadMark sOffset="0.0000000000000000e+00" type="broken" weight="standard" color="standard" width="1.3000000000000000e-01"/>
-                    </lane>
-                </center>
-                <right>
-                    <lane id="-1" type="driving" level= "0">
-                        <link>
-                            <predecessor id="-1"/>
-                            <successor id="1"/>
-                        </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
-                        <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
-                        <userData>
-                            <vectorLane travelDir="backward"/>
-                        </userData>
-                    </lane>
-                </right>
-            </laneSection>
-        </lanes>
-        <objects>
-        </objects>
-    </road>
-    <road name="Road 6" length="24.0" id="6" junction="2">
+    <road name="Road 6" length="18.6" id="6" junction="2">
         <link>
             <predecessor elementType="road" elementId="2" contactPoint="end"/>
             <successor elementType="road" elementId="4" contactPoint="end"/>
         </link>
         <planView>
-            <geometry s="0.0000000000000000e+00" x="112.0" y="12.0" hdg="-1.5707963267948966" length="24.0">
+            <geometry s="0.0000000000000000e+00" x="59.3" y="9.3" hdg="-1.5707963267948966" length="18.6">
                 <line/>
             </geometry>
         </planView>
@@ -315,7 +210,7 @@
                             <predecessor id="1"/>
                             <successor id="-1"/>
                         </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
+                        <width sOffset="0.0000000000000000e+00" a="3.3" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
                         <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
                         <userData>
                             <vectorLane travelDir="forward"/>
@@ -335,7 +230,7 @@
                             <predecessor id="-1"/>
                             <successor id="1"/>
                         </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
+                        <width sOffset="0.0000000000000000e+00" a="3.3" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
                         <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
                         <userData>
                             <vectorLane travelDir="backward"/>
@@ -344,17 +239,15 @@
                 </right>
             </laneSection>
         </lanes>
-        <objects>
-        </objects>
     </road>
-    <road name="Road 7" length="18.84955592153876" id="7" junction="2">
+    <road name="Road 7" length="14.608405839192539" id="7" junction="2">
         <link>
             <predecessor elementType="road" elementId="1" contactPoint="end"/>
             <successor elementType="road" elementId="2" contactPoint="end"/>
         </link>
         <planView>
-            <geometry s="0.0000000000000000e+00" x="100.0" y="0.0" hdg="0.0" length="18.84955592153876">
-                <arc curvature="0.08333333333333333"/>
+            <geometry s="0.0000000000000000e+00" x="50.0" y="0.0" hdg="0.0" length="14.608405839192539">
+                <arc curvature="0.1075268817204301"/>
             </geometry>
         </planView>
         <elevationProfile>
@@ -369,7 +262,7 @@
                             <predecessor id="1"/>
                             <successor id="-1"/>
                         </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
+                        <width sOffset="0.0000000000000000e+00" a="3.3" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
                         <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
                         <userData>
                             <vectorLane travelDir="forward"/>
@@ -389,7 +282,7 @@
                             <predecessor id="-1"/>
                             <successor id="1"/>
                         </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
+                        <width sOffset="0.0000000000000000e+00" a="3.3" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
                         <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
                         <userData>
                             <vectorLane travelDir="backward"/>
@@ -399,14 +292,14 @@
             </laneSection>
         </lanes>
     </road>
-    <road name="Road 8" length="18.84955592153876" id="8" junction="2">
+    <road name="Road 8" length="14.608405839192539" id="8" junction="2">
         <link>
             <predecessor elementType="road" elementId="1" contactPoint="end"/>
             <successor elementType="road" elementId="4" contactPoint="end"/>
         </link>
         <planView>
-            <geometry s="0.0000000000000000e+00" x="100.0" y="0.0" hdg="0.0" length="18.84955592153876">
-                <arc curvature="-0.08333333333333333"/>
+            <geometry s="0.0000000000000000e+00" x="50.0" y="0.0" hdg="0.0" length="14.608405839192539">
+                <arc curvature="-0.1075268817204301"/>
             </geometry>
         </planView>
         <elevationProfile>
@@ -421,7 +314,7 @@
                             <predecessor id="1"/>
                             <successor id="-1"/>
                         </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
+                        <width sOffset="0.0000000000000000e+00" a="3.3" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
                         <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
                         <userData>
                             <vectorLane travelDir="forward"/>
@@ -441,111 +334,7 @@
                             <predecessor id="-1"/>
                             <successor id="1"/>
                         </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
-                        <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
-                        <userData>
-                            <vectorLane travelDir="backward"/>
-                        </userData>
-                    </lane>
-                </right>
-            </laneSection>
-        </lanes>
-    </road>
-    <road name="Road 9" length="18.84955592153876" id="9" junction="2">
-        <link>
-            <predecessor elementType="road" elementId="3" contactPoint="end"/>
-            <successor elementType="road" elementId="2" contactPoint="end"/>
-        </link>
-        <planView>
-            <geometry s="0.0000000000000000e+00" x="124.0" y="0.0" hdg="-3.141592653589793" length="18.84955592153876">
-                <arc curvature="-0.08333333333333333"/>
-            </geometry>
-        </planView>
-        <elevationProfile>
-        </elevationProfile>
-        <lateralProfile>
-        </lateralProfile>
-        <lanes>
-            <laneSection s="0.0000000000000000e+00">
-                <left>
-                    <lane id="1" type="driving" level= "0">
-                        <link>
-                            <predecessor id="1"/>
-                            <successor id="-1"/>
-                        </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
-                        <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
-                        <userData>
-                            <vectorLane travelDir="forward"/>
-                        </userData>
-                    </lane>
-                </left>
-                <center>
-                    <lane id="0" type="none" level= "0">
-                        <link>
-                        </link>
-                        <roadMark sOffset="0.0000000000000000e+00" type="broken" weight="standard" color="standard" width="1.3000000000000000e-01"/>
-                    </lane>
-                </center>
-                <right>
-                    <lane id="-1" type="driving" level= "0">
-                        <link>
-                            <predecessor id="-1"/>
-                            <successor id="1"/>
-                        </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
-                        <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
-                        <userData>
-                            <vectorLane travelDir="backward"/>
-                        </userData>
-                    </lane>
-                </right>
-            </laneSection>
-        </lanes>
-    </road>
-    <road name="Road 10" length="18.84955592153876" id="10" junction="2">
-        <link>
-            <predecessor elementType="road" elementId="3" contactPoint="end"/>
-            <successor elementType="road" elementId="4" contactPoint="end"/>
-        </link>
-        <planView>
-            <geometry s="0.0000000000000000e+00" x="124.0" y="0.0" hdg="-3.141592653589793" length="18.84955592153876">
-                <arc curvature="0.08333333333333333"/>
-            </geometry>
-        </planView>
-        <elevationProfile>
-        </elevationProfile>
-        <lateralProfile>
-        </lateralProfile>
-        <lanes>
-            <laneSection s="0.0000000000000000e+00">
-                <left>
-                    <lane id="1" type="driving" level= "0">
-                        <link>
-                            <predecessor id="1"/>
-                            <successor id="-1"/>
-                        </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
-                        <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
-                        <userData>
-                            <vectorLane travelDir="forward"/>
-                        </userData>
-                    </lane>
-                </left>
-                <center>
-                    <lane id="0" type="none" level= "0">
-                        <link>
-                        </link>
-                        <roadMark sOffset="0.0000000000000000e+00" type="broken" weight="standard" color="standard" width="1.3000000000000000e-01"/>
-                    </lane>
-                </center>
-                <right>
-                    <lane id="-1" type="driving" level= "0">
-                        <link>
-                            <predecessor id="-1"/>
-                            <successor id="1"/>
-                        </link>
-                        <width sOffset="0.0000000000000000e+00" a="4.0" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
+                        <width sOffset="0.0000000000000000e+00" a="3.3" b="0.0000000000000000e+00" c="0.0000000000000000e+00" d="0.0000000000000000e+00"/>
                         <roadMark sOffset="0.0000000000000000e+00" type="solid" weight="standard" color="standard" width="1.0000000000000000e-01"/>
                         <userData>
                             <vectorLane travelDir="backward"/>
@@ -556,10 +345,6 @@
         </lanes>
     </road>
     <junction id="2" name="">
-        <connection id="0" incomingRoad="1" connectingRoad="5" contactPoint="start">
-            <laneLink from="1" to="1"/>
-            <laneLink from="-1" to="-1"/>
-        </connection>
         <connection id="1" incomingRoad="2" connectingRoad="6" contactPoint="start">
             <laneLink from="1" to="1"/>
             <laneLink from="-1" to="-1"/>
@@ -572,14 +357,5 @@
             <laneLink from="1" to="1"/>
             <laneLink from="-1" to="-1"/>
         </connection>
-        <connection id="4" incomingRoad="3" connectingRoad="9" contactPoint="start">
-            <laneLink from="1" to="1"/>
-            <laneLink from="-1" to="-1"/>
-        </connection>
-        <connection id="5" incomingRoad="3" connectingRoad="10" contactPoint="start">
-            <laneLink from="1" to="1"/>
-            <laneLink from="-1" to="-1"/>
-        </connection>
     </junction>
 </OpenDRIVE>
-

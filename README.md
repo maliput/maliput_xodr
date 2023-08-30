@@ -8,9 +8,10 @@ Templatized XODR files are provided for XODR description customizing.
 
 The files are generated using the options selected via environment variable.
 
-This is achieved using [empy](https://github.com/dirk-thomas/empy) tool. For installing:
+This is achieved using [empy](https://github.com/dirk-thomas/empy) tool. For installing it, and other dependencies:
+
 ```
-pip install empy
+pip install -r requirements.txt
 ```
 
 
@@ -53,6 +54,43 @@ For generating a XODR file by using this template simply execute:
 
 ```sh
 WIDTH=4 RADIUS=8 CROSSWALK=True CROSSWALK_LENGTH=2 empy3 templates/intersection.xml.em > generated_file.xodr
+```
+
+### T-Intersection
+Description:
+ - 3 road intersection
+
+<img src="docs/t_intersection.png" width=500>
+
+Options:
+ - `WIDTH`: Width of the lanes(default 3.3m).
+ - `RADIUS`: Radius of the junction's border(default 6m).
+ - `EXTENSIONS_LENGTH`: Indicates the length of the lead-in and lead-out roads(default 50m).
+ - `X_OFFSET`: X offset with respect to the origin.
+ - `Y_OFFSET`: Y offset with respect to the origin.
+
+For generating a XODR file by using this template simply execute:
+
+```sh
+WIDTH=3.3 RADIUS=6 empy3 templates/t_intersection.xml.em > generated_file.xodr
+```
+
+### Curved Road
+Description:
+ - 2 curved non-connected roads
+
+<img src="docs/curved_road.png" width=500>
+
+Options:
+ - `WIDTH`: Width of the lanes(default 3.5m).
+ - `RADIUS`: Radius of the curved section(default 12m).
+ - `LENGTH_STRAIGHT`: Length of the straight section(default 20m).
+ - `GAP`: Distance between roads(default 1m).
+ - `X_OFFSET`: X offset with respect to the origin.
+ - `Y_OFFSET`: Y offset with respect to the origin.
+
+```sh
+LENGTH_STRAIGHT=25 RADIUS=15 GAP=5 empy3 templates/curved_road.xml.em > generated_file.xodr
 ```
 
 ### Bus Stop
