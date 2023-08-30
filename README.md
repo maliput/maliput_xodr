@@ -8,9 +8,10 @@ Templatized XODR files are provided for XODR description customizing.
 
 The files are generated using the options selected via environment variable.
 
-This is achieved using [empy](https://github.com/dirk-thomas/empy) tool. For installing:
+This is achieved using [empy](https://github.com/dirk-thomas/empy) tool. For installing it, and other dependencies:
+
 ```
-pip install empy
+pip install -r requirements.txt
 ```
 
 
