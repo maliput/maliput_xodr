@@ -34,6 +34,9 @@
   - LENGTH: 500.0
   - WIDTH: 4.0
   - CROSSWALK: True
+  - CROSSWALK_LENGTH: 2.0
+  - STOPLINE: False
+  - STOPLINE_DISTANCE: 7.0
   - OFFSET_X: 0.0
   - OFFSET_Y: 0.0
 -->
