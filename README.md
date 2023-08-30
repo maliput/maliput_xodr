@@ -111,7 +111,7 @@ Options:
 
 
 ```sh
-WIDTH=4.0 STOPLINE=True RADIUS=6.0 empy3 src/maliput_xodr/templates/dedicated_turn_lanes_going_north_and_south.em > generated_file.xodr
+WIDTH=4.0 STOPLINE=True RADIUS=6.0 empy3 templates/dedicated_turn_lanes_going_north_and_south.xml.em > generated_file.xodr
 ```
 
 ## Resources

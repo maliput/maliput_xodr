@@ -241,7 +241,7 @@
                         <width sOffset="0.0e+00" a="4.0" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
                         <userData>
-                            <vectorLane travelDir="backward"/>
+                            <vectorLane travelDir="forward"/>
                         </userData>
                     </lane>
                 </left>
@@ -259,7 +259,7 @@
                         <width sOffset="0.0e+00" a="4.0" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
                         <userData>
-                            <vectorLane travelDir="forward"/>
+                            <vectorLane travelDir="backward"/>
                         </userData>
                     </lane>
                 </right>
@@ -290,7 +290,7 @@
                         <width sOffset="0.0e+00" a="4.0" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
                         <userData>
-                            <vectorLane travelDir="backward"/>
+                            <vectorLane travelDir="forward"/>
                         </userData>
                     </lane>
                 </left>
@@ -309,7 +309,7 @@
                         <width sOffset="0.0e+00" a="4.0" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
                         <userData>
-                            <vectorLane travelDir="forward"/>
+                            <vectorLane travelDir="backward"/>
                         </userData>
                     </lane>
                 </right>
@@ -338,7 +338,7 @@
                         <width sOffset="0.0e+00" a="4.0" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
                         <userData>
-                            <vectorLane travelDir="backward"/>
+                            <vectorLane travelDir="forward"/>
                         </userData>
                     </lane>
                 </left>
@@ -356,7 +356,7 @@
                         <width sOffset="0.0e+00" a="4.0" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
                         <userData>
-                            <vectorLane travelDir="forward"/>
+                            <vectorLane travelDir="backward"/>
                         </userData>
                     </lane>
                 </right>
@@ -436,11 +436,6 @@ Generated GeoJSON can be verified using: https://geojson.io
             -122.1031395727989,
             37.41786272059724,
             0.0
-          ],
-            [
-            -122.10313957284221,
-            37.41789876134436,
-            0.0
           ]
           ],
         "type": "LineString"
@@ -462,11 +457,6 @@ Generated GeoJSON can be verified using: https://geojson.io
             [
             -122.10293623400139,
             37.417862720577816,
-            0.0
-          ],
-            [
-            -122.1029362340555,
-            37.4178266798305,
             0.0
           ]
           ],

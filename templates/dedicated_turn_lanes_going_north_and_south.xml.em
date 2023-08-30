@@ -67,7 +67,6 @@ def to_lon_lat_points(points):
   for point in points:
     lon, lat, h = cartesian_to_geodetic(point[0], point[1], 0, LON_0, LAT_0)
     lon_lat_points.append([lon, lat, h])
-  lon_lat_points.append(lon_lat_points[0]) # GeoJSON format needs closure
   return lon_lat_points
 
 # This is the road this file represents.
@@ -347,7 +346,7 @@ if stopline:
                         <width sOffset="0.0e+00" a="@(width)@\" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
                         <userData>
-                            <vectorLane travelDir="backward"/>
+                            <vectorLane travelDir="forward"/>
                         </userData>
                     </lane>
                 </left>
@@ -365,7 +364,7 @@ if stopline:
                         <width sOffset="0.0e+00" a="@(width)@\" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
                         <userData>
-                            <vectorLane travelDir="forward"/>
+                            <vectorLane travelDir="backward"/>
                         </userData>
                     </lane>
                 </right>
@@ -396,7 +395,7 @@ if stopline:
                         <width sOffset="0.0e+00" a="@(width)@\" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
                         <userData>
-                            <vectorLane travelDir="backward"/>
+                            <vectorLane travelDir="forward"/>
                         </userData>
                     </lane>
                 </left>
@@ -415,7 +414,7 @@ if stopline:
                         <width sOffset="0.0e+00" a="@(width)@\" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
                         <userData>
-                            <vectorLane travelDir="forward"/>
+                            <vectorLane travelDir="backward"/>
                         </userData>
                     </lane>
                 </right>
@@ -444,7 +443,7 @@ if stopline:
                         <width sOffset="0.0e+00" a="@(width)@\" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
                         <userData>
-                            <vectorLane travelDir="backward"/>
+                            <vectorLane travelDir="forward"/>
                         </userData>
                     </lane>
                 </left>
@@ -462,7 +461,7 @@ if stopline:
                         <width sOffset="0.0e+00" a="@(width)@\" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
                         <userData>
-                            <vectorLane travelDir="forward"/>
+                            <vectorLane travelDir="backward"/>
                         </userData>
                     </lane>
                 </right>
