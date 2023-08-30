@@ -16,16 +16,23 @@ pip install empy
 
 ### Straight Forward
 Description:
- - 200m road.
+ - Variable-length road (e.g 200m).
  - Two lanes with opposite direction.
+ - Optional:
+    - A crosswalk in the middle
+    - Stop lines before the crosswalk.
 
 <img src="docs/straight_forward.png" width=500>
 
+<img src="docs/straight_forward_stop_lines.png" width=500>
 
 Options:
- - `LENGTH`: Length of the road(default 500m).
- - `WIDTH`: Width of the lanes(default 3m).
- - `CROSSWALK`: Adds a 2m-width crosswalk in the middle(s=100m).(default=`False`)
+ - `LENGTH`: Length of the road(default=`500m`).
+ - `WIDTH`: Width of the lanes(default=`3m`).
+ - `CROSSWALK`: Adds a 2m-width crosswalk in the middle(s=`LENGTH`/2.).(default=`False`)
+ - `CROSSWALK_LENGTH`: Length of the crosswalk.(default=`2m`)
+ - `STOPLINE`: Adds stop lines before the crosswalk intersection .(default=`False`)
+ - `STOPLINE_DISTANCE`: Distance from stop line to crosswalk. (default=`7m`)
  - `X_OFFSET`: X offset with respect to the origin.
  - `Y_OFFSET`: Y offset with respect to the origin.
 
@@ -33,6 +40,10 @@ For generating a XODR file by using this template simply execute:
 
 ```sh
 CROSSWALK=True WIDTH=4 empy3 templates/straight_forward.xml.em > generated_file.xodr
+```
+
+```sh
+CROSSWALK=True STOPLINE=True LENGTH=200 WIDTH=4 empy3 templates/straight_forward.xml.em > generated_file.xodr
 ```
 
 ### Intersection
