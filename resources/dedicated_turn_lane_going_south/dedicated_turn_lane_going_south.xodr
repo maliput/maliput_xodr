@@ -323,7 +323,7 @@
     </road>
     <road name="Road 7" length="18.6" id="7" junction="10">
         <link>
-            <predecessor elementType="road" elementId="3" contactPoint="end"/>
+            <predecessor elementType="road" elementId="3" contactPoint="start"/>
             <successor elementType="road" elementId="8" contactPoint="start"/>
         </link>
         <planView>
@@ -398,9 +398,9 @@
             </laneSection>
         </lanes>
     </road>
-    <road name="Road 9" length="14.608405839192539" id="9" junction="-1">
+    <road name="Road 9" length="14.608405839192539" id="9" junction="10">
         <link>
-            <predecessor elementType="junction" elementId="10"/>
+            <predecessor elementType="road" elementId="3" contactPoint="start"/>
             <successor elementType="road" elementId="4" contactPoint="end"/>
         </link>
         <planView>

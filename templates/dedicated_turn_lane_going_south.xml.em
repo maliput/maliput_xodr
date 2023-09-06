@@ -436,7 +436,7 @@ if stopline:
     </road>
     <road name="Road 7" length="@(road_7_length)@\" id="7" junction="10">
         <link>
-            <predecessor elementType="road" elementId="3" contactPoint="end"/>
+            <predecessor elementType="road" elementId="3" contactPoint="start"/>
             <successor elementType="road" elementId="8" contactPoint="start"/>
         </link>
         <planView>
@@ -511,9 +511,9 @@ if stopline:
             </laneSection>
         </lanes>
     </road>
-    <road name="Road 9" length="@(road_9_length)@\" id="9" junction="-1">
+    <road name="Road 9" length="@(road_9_length)@\" id="9" junction="10">
         <link>
-            <predecessor elementType="junction" elementId="10"/>
+            <predecessor elementType="road" elementId="3" contactPoint="start"/>
             <successor elementType="road" elementId="4" contactPoint="end"/>
         </link>
         <planView>
