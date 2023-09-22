@@ -106,9 +106,9 @@ LENGTH_STRAIGHT=25 RADIUS=15 GAP=5 empy3 templates/curved_road.xml.em > generate
 
 ### Dedicated turn lane going South
 Description:
- - Represents a cross with lanes going South to North (1), North to South (2), and West to East (1) and East to West (1).
- - At the junction, the middle lane of the North-South road has a right turn to incorporate into the East to Wsest corridor.
- - Two stop lines are added in opposing corners of the West-East corridor.
+ - Represents a T intersection with lanes going South to North, North to South, and West to North.
+ - At the junction, the middle lane of the North-South road has a right turn to incorporate into the East to West corridor.
+ - A stop line is added in the West side of the West-East corridor.
 
 
 <img src="docs/dedicated_turn_lane_going_south.png" width=500>
