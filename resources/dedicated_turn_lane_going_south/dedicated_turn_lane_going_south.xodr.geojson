@@ -19,29 +19,8 @@
       },
       "properties": {
         "Id": "{ba11d4ae-3784-11ee-be56-0242ac120002}",
-        "Type": "Stopline"
-      },
-      "type": "Feature"
-    },
-    {
-      "geometry": {
-        "coordinates": [
-            [
-            -122.10290686290996,
-            37.41782667979878,
-            0.0
-          ],
-            [
-            -122.10290686285367,
-            37.417856413415336,
-            0.0
-          ]
-          ],
-        "type": "LineString"
-      },
-      "properties": {
-        "Id": "{ba11d7ce-3784-11ee-be56-0242ac120002}",
-        "Type": "Stopline"
+        "Type": "Stopline",
+        "HasStopSign": "True"
       },
       "type": "Feature"
     }

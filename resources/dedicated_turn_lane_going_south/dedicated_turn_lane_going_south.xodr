@@ -102,6 +102,7 @@
                 <left>
                     <lane id="1" type="driving" level= "0">
                         <link>
+                            <predecessor id="1"/>
                             <successor id="1"/>
                         </link>
                         <width sOffset="0.0e+00" a="3.3" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
@@ -224,14 +225,14 @@
             </laneSection>
         </lanes>
     </road>
-    <road name="Road 5" length="21.9" id="5" junction="10">
+    <road name="Road 5" length="14.608405839192539" id="5" junction="10">
         <link>
-            <predecessor elementType="road" elementId="4" contactPoint="end"/>
-            <successor elementType="road" elementId="6" contactPoint="start"/>
+            <predecessor elementType="road" elementId="1" contactPoint="end"/>
+            <successor elementType="road" elementId="4" contactPoint="end"/>
         </link>
         <planView>
-            <geometry s="0.0e+00" x="-9.299999999999997" y="109.3" hdg="0.0" length="21.9">
-                <line/>
+            <geometry s="0.0e+00" x="0.0" y="100.0" hdg="1.5707963267948966" length="14.608405839192539">
+                <arc curvature="0.1075268817204301"/>
             </geometry>
         </planView>
         <elevationProfile>
@@ -243,44 +244,34 @@
                 <left>
                     <lane id="1" type="driving" level= "0">
                         <link>
-                            <successor id="1"/>
-                        </link>
-                        <width sOffset="0.0e+00" a="3.3" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
-                        <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
-                        <userData>
-                            <vectorLane travelDir="forward"/>
-                        </userData>
-                    </lane>
-                </left>
-                <center>
-                    <lane id="0" type="none" level= "0">
-                        <link>
-                        </link>
-                        <roadMark sOffset="0.0e+00" type="broken" weight="standard" color="standard" width="1.0e-01"/>
-                    </lane>
-                </center>
-                <right>
-                    <lane id="-1" type="driving" level= "0">
-                        <link>
+                            <predecessor id="1"/>
                             <successor id="-1"/>
                         </link>
                         <width sOffset="0.0e+00" a="3.3" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
                         <userData>
-                            <vectorLane travelDir="backward"/>
+                            <vectorLane travelDir="forward"/>
                         </userData>
                     </lane>
-                </right>
+                </left>
+                <center>
+                    <lane id="0" type="none" level= "0">
+                        <link>
+                        </link>
+                        <roadMark sOffset="0.0e+00" type="broken" weight="standard" color="standard" width="1.0e-01"/>
+                    </lane>
+                </center>
             </laneSection>
         </lanes>
     </road>
-    <road name="Road 6" length="100.0" id="6" junction="-1">
+    <road name="Road 6" length="14.608405839192539" id="6" junction="10">
         <link>
-            <predecessor elementType="junction" elementId="10"/>
+            <predecessor elementType="road" elementId="4" contactPoint="end"/>
+            <successor elementType="road" elementId="3" contactPoint="start"/>
         </link>
         <planView>
-            <geometry s="0.0e+00" x="12.600000000000001" y="109.3" hdg="0.0" length="100.0">
-                <line/>
+            <geometry s="0.0e+00" x="-9.299999999999997" y="109.3" hdg="0.0" length="14.608405839192539">
+                <arc curvature="0.1075268817204301"/>
             </geometry>
         </planView>
         <elevationProfile>
@@ -307,17 +298,6 @@
                         <roadMark sOffset="0.0e+00" type="broken" weight="standard" color="standard" width="1.0e-01"/>
                     </lane>
                 </center>
-                <right>
-                    <lane id="-1" type="driving" level= "0">
-                        <link>
-                        </link>
-                        <width sOffset="0.0e+00" a="3.3" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
-                        <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
-                        <userData>
-                            <vectorLane travelDir="backward"/>
-                        </userData>
-                    </lane>
-                </right>
             </laneSection>
         </lanes>
     </road>
@@ -441,14 +421,16 @@
         <connection id="0" incomingRoad="1" connectingRoad="2" contactPoint="start">
             <laneLink from="1" to="1"/>
         </connection>
-        <connection id="1" incomingRoad="4" connectingRoad="5" contactPoint="start">
-            <laneLink from="1" to="1"/>
-            <laneLink from="-1" to="-1"/>
+        <connection id="1" incomingRoad="4" connectingRoad="5" contactPoint="end">
+            <laneLink from="-1" to="1"/>
         </connection>
-        <connection id="2" incomingRoad="3" connectingRoad="7" contactPoint="start">
+        <connection id="2" incomingRoad="4" connectingRoad="6" contactPoint="start">
+            <laneLink from="1" to="1"/>
+        </connection>
+        <connection id="3" incomingRoad="3" connectingRoad="7" contactPoint="start">
             <laneLink from="-2" to="1"/>
         </connection>
-        <connection id="3" incomingRoad="3" connectingRoad="9" contactPoint="start">
+        <connection id="4" incomingRoad="3" connectingRoad="9" contactPoint="start">
             <laneLink from="-1" to="1"/>
         </connection>
     </junction>
@@ -478,29 +460,8 @@ Generated GeoJSON can be verified using: https://geojson.io
       },
       "properties": {
         "Id": "{ba11d4ae-3784-11ee-be56-0242ac120002}",
-        "Type": "Stopline"
-      },
-      "type": "Feature"
-    },
-    {
-      "geometry": {
-        "coordinates": [
-            [
-            -122.10290686290996,
-            37.41782667979878,
-            0.0
-          ],
-            [
-            -122.10290686285367,
-            37.417856413415336,
-            0.0
-          ]
-          ],
-        "type": "LineString"
-      },
-      "properties": {
-        "Id": "{ba11d7ce-3784-11ee-be56-0242ac120002}",
-        "Type": "Stopline"
+        "Type": "Stopline",
+        "HasStopSign": "True"
       },
       "type": "Feature"
     }

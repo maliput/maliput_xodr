@@ -78,12 +78,12 @@ def to_lon_lat_points(points):
 #               ^  v  v
 #               |  3  |
 #               |  |  |
-#               *  *  *
-#               | /   |
-# x----4>----x----5>----x----6>----x
-# x-----<----x-/---<----x-----<----x
-#             9 |     |
-#               ^     v
+#              /*  *  *
+#            6/ | /9  |
+# x----4>----x  |     |
+# x-----<----x-/|     |
+#             \ |     |
+#             5\^     v
 #               2     7
 #               *     *
 #               |     |
@@ -120,11 +120,13 @@ road_8_length = 100.
 road_4_length = 100.
 road_4_start = [road_1_start[0] - width - radius - road_4_length, road_1_start[1] + road_1_length + radius + width, 0.]
 
-road_5_start = [road_4_start[0] + road_4_length, road_4_start[1], 0.]
-road_5_length = 3. * width + 2. * radius 
+road_5_start = road_2_start
+road_5_curvature = 1. / (radius + width)
+road_5_length = arc_length(radius + width, m.pi / 2.)
 
-road_6_start = [road_5_start[0] + road_5_length, road_5_start[1], 0.]
-road_6_length = 100.
+road_6_start = [road_4_start[0] + road_4_length, road_4_start[1], 0.]
+road_6_curvature = road_5_curvature
+road_6_length = road_5_length
 
 road_9_start = [road_3_start[0], road_3_start[1], -m.pi / 2.]
 road_9_curvature = -1. / (radius + width)
@@ -135,12 +137,7 @@ if stopline:
     [road_4_start[0] + road_4_length, road_4_start[1] + width],
     [road_4_start[0] + road_4_length, road_4_start[1]],
   ]
-  stopline_east_points = [
-    [road_6_start[0], road_6_start[1] - width],
-    [road_6_start[0], road_6_start[1]],
-  ]
   stopline_west_points_lon_lat = to_lon_lat_points(stopline_west_points)
-  stopline_east_points_lon_lat = to_lon_lat_points(stopline_east_points)
 }@
 <!--
  Map generated using https://github.com/maliput/maliput_xodr.
@@ -215,6 +212,7 @@ if stopline:
                 <left>
                     <lane id="1" type="driving" level= "0">
                         <link>
+                            <predecessor id="1"/>
                             <successor id="1"/>
                         </link>
                         <width sOffset="0.0e+00" a="@(width)@\" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
@@ -339,12 +337,12 @@ if stopline:
     </road>
     <road name="Road 5" length="@(road_5_length)@\" id="5" junction="10">
         <link>
-            <predecessor elementType="road" elementId="4" contactPoint="end"/>
-            <successor elementType="road" elementId="6" contactPoint="start"/>
+            <predecessor elementType="road" elementId="1" contactPoint="end"/>
+            <successor elementType="road" elementId="4" contactPoint="end"/>
         </link>
         <planView>
             <geometry s="0.0e+00" x="@(road_5_start[0])@\" y="@(road_5_start[1])@\" hdg="@(road_5_start[2])@\" length="@(road_5_length)@\">
-                <line/>
+                <arc curvature="@(road_5_curvature)@\"/>
             </geometry>
         </planView>
         <elevationProfile>
@@ -356,44 +354,34 @@ if stopline:
                 <left>
                     <lane id="1" type="driving" level= "0">
                         <link>
-                            <successor id="1"/>
-                        </link>
-                        <width sOffset="0.0e+00" a="@(width)@\" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
-                        <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
-                        <userData>
-                            <vectorLane travelDir="forward"/>
-                        </userData>
-                    </lane>
-                </left>
-                <center>
-                    <lane id="0" type="none" level= "0">
-                        <link>
-                        </link>
-                        <roadMark sOffset="0.0e+00" type="broken" weight="standard" color="standard" width="1.0e-01"/>
-                    </lane>
-                </center>
-                <right>
-                    <lane id="-1" type="driving" level= "0">
-                        <link>
+                            <predecessor id="1"/>
                             <successor id="-1"/>
                         </link>
                         <width sOffset="0.0e+00" a="@(width)@\" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
                         <userData>
-                            <vectorLane travelDir="backward"/>
+                            <vectorLane travelDir="forward"/>
                         </userData>
                     </lane>
-                </right>
+                </left>
+                <center>
+                    <lane id="0" type="none" level= "0">
+                        <link>
+                        </link>
+                        <roadMark sOffset="0.0e+00" type="broken" weight="standard" color="standard" width="1.0e-01"/>
+                    </lane>
+                </center>
             </laneSection>
         </lanes>
     </road>
-    <road name="Road 6" length="@(road_6_length)@\" id="6" junction="-1">
+    <road name="Road 6" length="@(road_6_length)@\" id="6" junction="10">
         <link>
-            <predecessor elementType="junction" elementId="10"/>
+            <predecessor elementType="road" elementId="4" contactPoint="end"/>
+            <successor elementType="road" elementId="3" contactPoint="start"/>
         </link>
         <planView>
             <geometry s="0.0e+00" x="@(road_6_start[0])@\" y="@(road_6_start[1])@\" hdg="@(road_6_start[2])@\" length="@(road_6_length)@\">
-                <line/>
+                <arc curvature="@(road_6_curvature)@\"/>
             </geometry>
         </planView>
         <elevationProfile>
@@ -420,17 +408,6 @@ if stopline:
                         <roadMark sOffset="0.0e+00" type="broken" weight="standard" color="standard" width="1.0e-01"/>
                     </lane>
                 </center>
-                <right>
-                    <lane id="-1" type="driving" level= "0">
-                        <link>
-                        </link>
-                        <width sOffset="0.0e+00" a="@(width)@\" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
-                        <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
-                        <userData>
-                            <vectorLane travelDir="backward"/>
-                        </userData>
-                    </lane>
-                </right>
             </laneSection>
         </lanes>
     </road>
@@ -554,14 +531,16 @@ if stopline:
         <connection id="0" incomingRoad="1" connectingRoad="2" contactPoint="start">
             <laneLink from="1" to="1"/>
         </connection>
-        <connection id="1" incomingRoad="4" connectingRoad="5" contactPoint="start">
-            <laneLink from="1" to="1"/>
-            <laneLink from="-1" to="-1"/>
+        <connection id="1" incomingRoad="4" connectingRoad="5" contactPoint="end">
+            <laneLink from="-1" to="1"/>
         </connection>
-        <connection id="2" incomingRoad="3" connectingRoad="7" contactPoint="start">
+        <connection id="2" incomingRoad="4" connectingRoad="6" contactPoint="start">
+            <laneLink from="1" to="1"/>
+        </connection>
+        <connection id="3" incomingRoad="3" connectingRoad="7" contactPoint="start">
             <laneLink from="-2" to="1"/>
         </connection>
-        <connection id="3" incomingRoad="3" connectingRoad="9" contactPoint="start">
+        <connection id="4" incomingRoad="3" connectingRoad="9" contactPoint="start">
             <laneLink from="-1" to="1"/>
         </connection>
     </junction>
@@ -590,26 +569,8 @@ Generated GeoJSON can be verified using: https://geojson.io
       },
       "properties": {
         "Id": "{ba11d4ae-3784-11ee-be56-0242ac120002}",
-        "Type": "Stopline"
-      },
-      "type": "Feature"
-    },
-    {
-      "geometry": {
-        "coordinates": [
-  @[for idx, lon_lat_z in enumerate(stopline_east_points_lon_lat)]@
-          [
-            @(lon_lat_z[0]),
-            @(lon_lat_z[1]),
-            @(lon_lat_z[2])
-          ]@[if (idx != len(stopline_east_points_lon_lat)-1)],@[end if]
-  @[end for ]@
-        ],
-        "type": "LineString"
-      },
-      "properties": {
-        "Id": "{ba11d7ce-3784-11ee-be56-0242ac120002}",
-        "Type": "Stopline"
+        "Type": "Stopline",
+        "HasStopSign": "True"
       },
       "type": "Feature"
     }
