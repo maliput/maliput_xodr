@@ -104,6 +104,27 @@ Options:
 LENGTH_STRAIGHT=25 RADIUS=15 GAP=5 empy3 templates/curved_road.xml.em > generated_file.xodr
 ```
 
+### Dedicated turn lane going South
+Description:
+ - Represents a T intersection with lanes going South to North, North to South, and West to North.
+ - At the junction, the middle lane of the North-South road has a right turn to incorporate into the East to West corridor.
+ - A stop line is added in the West side of the West-East corridor.
+
+
+<img src="docs/dedicated_turn_lane_going_south.png" width=500>
+
+Options:
+ - `WIDTH`: Width of the lanes (default 3.3m).
+ - `RADIUS`: Radius of the curved section (default 6m).
+ - `STOPLINE`: A boolean indicating whether to add the GeoJson stoplines (default True).
+ - `X_OFFSET`: X offset with respect to the origin (default 0m).
+ - `Y_OFFSET`: Y offset with respect to the origin (default 0m).
+
+
+```sh
+WIDTH=3.3 STOPLINE=True RADIUS=6.0 empy3 templates/dedicated_turn_lane_going_south.xml.em > generated_file.xodr
+```
+
 ## Resources
 
 Example files with different values are provided under the `resources` folder.
