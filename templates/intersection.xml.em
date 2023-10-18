@@ -862,6 +862,11 @@ Generated GeoJSON can be verified using: https://geojson.io
   "_comment": "Features of type 'hasOncomingTraffic' are temporary hints and ignored by Maliput.",
   "features": [
     {
+      "geometry": {
+        "coordinates": [0, 0],
+        "type": "Point",
+        "_comment": "Dummy point to make GeoJSON valid. Not used by maliput."
+      },
       "properties": {
         "Id": "9_0_1",
         "Type": "Lane",
@@ -870,6 +875,11 @@ Generated GeoJSON can be verified using: https://geojson.io
       "type": "Feature"
     },
     {
+      "geometry": {
+        "coordinates": [0, 0],
+        "type": "Point",
+        "_comment": "Dummy point to make GeoJSON valid. Not used by maliput."
+      },
       "properties": {
         "Id": "8_0_1",
         "Type": "Lane",
@@ -878,6 +888,11 @@ Generated GeoJSON can be verified using: https://geojson.io
       "type": "Feature"
     },
     {
+      "geometry": {
+        "coordinates": [0, 0],
+        "type": "Point",
+        "_comment": "Dummy point to make GeoJSON valid. Not used by maliput."
+      },
       "properties": {
         "Id": "7_0_-1",
         "Type": "Lane",
@@ -886,6 +901,11 @@ Generated GeoJSON can be verified using: https://geojson.io
       "type": "Feature"
     },
     {
+      "geometry": {
+        "coordinates": [0, 0],
+        "type": "Point",
+        "_comment": "Dummy point to make GeoJSON valid. Not used by maliput."
+      },
       "properties": {
         "Id": "10_0_-1",
         "Type": "Lane",
