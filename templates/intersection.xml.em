@@ -853,15 +853,46 @@ if crosswalk or stopline:
         </connection>
     </junction>
 </OpenDRIVE>
-@[if crosswalk or stopline]
-<!-- GeoJSON information for the crosswalks
+<!-- GeoJSON information
 Generated GeoJSON can be verified using: https://geojson.io
 @{
 }@
 
 {
+  "_comment": "Features of type 'hasOncomingTraffic' are temporary hints and ignored by Maliput.",
   "features": [
-@[if crosswalk]
+    {
+      "properties": {
+        "Id": "9_0_1",
+        "Type": "Lane",
+        "HasOncomingTraffic": true
+      },
+      "type": "Feature"
+    },
+    {
+      "properties": {
+        "Id": "8_0_1",
+        "Type": "Lane",
+        "HasOncomingTraffic": true
+      },
+      "type": "Feature"
+    },
+    {
+      "properties": {
+        "Id": "7_0_-1",
+        "Type": "Lane",
+        "HasOncomingTraffic": true
+      },
+      "type": "Feature"
+    },
+    {
+      "properties": {
+        "Id": "10_0_-1",
+        "Type": "Lane",
+        "HasOncomingTraffic": true
+      },
+      "type": "Feature"
+    }@[if crosswalk],
     {
       "geometry": {
         "coordinates": [
@@ -991,4 +1022,3 @@ Generated GeoJSON can be verified using: https://geojson.io
 }
 
 -->
-@[end if]
