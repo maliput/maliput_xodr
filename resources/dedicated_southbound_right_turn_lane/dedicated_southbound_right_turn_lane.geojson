@@ -1,0 +1,30 @@
+{
+  "features": [
+
+    {
+      "geometry": {
+        "coordinates": [
+            [
+            -122.10315426092878,
+            37.41968818414917,
+            0.0
+          ],
+            [
+            -122.10315426088722,
+            37.419658450541846,
+            0.0
+          ]
+          ],
+        "type": "LineString"
+      },
+      "properties": {
+        "Id": "{ba11d4ae-3784-11ee-be56-0242ac120002}",
+        "Type": "Stopline",
+        "HasStopSign": "True"
+      },
+      "type": "Feature"
+    }
+
+  ],
+  "type": "FeatureCollection"
+}
