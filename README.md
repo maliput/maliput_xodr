@@ -58,7 +58,7 @@ Options:
  - `RADIUS`: Radius of the junction's border(default 8m).
  - `CROSSWALK`: Adds a crosswalk in each of the four sides of the intersection.(default=`False`)
  - `CROSSWALK_LENGTH`: Length of the crosswalk to be added if enabled.(default 2m)
- - `STOPLINE`:Indicates if stoplines are generated(for east west directions only)(it only affects geoJSON info).(default=`False`)
+ - `STOPLINE`: Indicates if stoplines are generated(for east west directions only)(it only affects geoJSON info).(default=`False`)
  - `EXTENSIONS_LENGTH`: Indicates the length of the lead-in and lead-out roads(default 100m).
  - `X_OFFSET`: X offset with respect to the origin.
  - `Y_OFFSET`: Y offset with respect to the origin.
