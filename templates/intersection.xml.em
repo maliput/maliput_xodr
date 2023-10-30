@@ -60,6 +60,8 @@ crosswalk = str2bool(os.environ['CROSSWALK']) if 'CROSSWALK' in os.environ else 
 crosswalk_length = str2float(os.environ['CROSSWALK_LENGTH']) if 'CROSSWALK_LENGTH' in os.environ else 2.0
 # stopline
 stopline = str2bool(os.environ['STOPLINE']) if 'STOPLINE' in os.environ else False
+# Lead-in & lead-out length
+extensions_length = str2float(os.environ['EXTENSIONS_LENGTH']) if 'EXTENSIONS_LENGTH' in os.environ  else 100.
 
 # No junction roads
 #          2
@@ -75,16 +77,20 @@ stopline = str2bool(os.environ['STOPLINE']) if 'STOPLINE' in os.environ else Fal
 #          4
 #
 road_1_start = [0. + x_offset, 0. + y_offset]
-road_1_end = [100. + x_offset, 0. + y_offset]
+road_1_end = [extensions_length + x_offset, 0. + y_offset]
+road_1_length = extensions_length
 
-road_2_start = [100. + radius + width + x_offset, 100. + radius + width + y_offset]
-road_2_end   = [100. + radius + width + x_offset,        radius + width + y_offset]
+road_2_start = [extensions_length + radius + width + x_offset, extensions_length + radius + width + y_offset]
+road_2_end   = [extensions_length + radius + width + x_offset,        radius + width + y_offset]
+road_2_length = extensions_length
 
-road_3_start = [100. + 2*radius + 2*width + 100. + x_offset, 0. + y_offset]
-road_3_end   = [100. + 2*radius + 2*width        + x_offset, 0. + y_offset]
+road_3_start = [extensions_length + 2*radius + 2*width + extensions_length + x_offset, 0. + y_offset]
+road_3_end   = [extensions_length + 2*radius + 2*width        + x_offset, 0. + y_offset]
+road_3_length = extensions_length
 
-road_4_start = [100. + radius + width + x_offset, -100. - radius - width + y_offset]
-road_4_end   = [100. + radius + width + x_offset,       - radius - width + y_offset]
+road_4_start = [extensions_length + radius + width + x_offset, -extensions_length - radius - width + y_offset]
+road_4_end   = [extensions_length + radius + width + x_offset,       - radius - width + y_offset]
+road_4_length = extensions_length
 
 # Junction roads
 
@@ -240,12 +246,12 @@ if crosswalk or stopline:
     <header revMajor="1" revMinor="1" name="Intersection" version="1.00" date="Fri Apr 28 12:00:00 2023" north="0.0000000000000000e+00" south="0.0000000000000000e+00" east="0.0000000000000000e+00" west="0.0000000000000000e+00" maxRoad="2" maxJunc="0" maxPrg="0">
         <geoReference><![CDATA[+proj=tmerc +lat_0=@(LAT_0)@  +lon_0=@(LON_0)@  +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +vunits=m +no_defs ]]></geoReference>
     </header>
-    <road name="Road 1" length="100.0" id="1" junction="-1">
+    <road name="Road 1" length="@(road_1_length)@\" id="1" junction="-1">
         <link>
             <successor elementType="junction" elementId="2"/>
         </link>
         <planView>
-            <geometry s="0.0000000000000000e+00" x="@(road_1_start[0])@\" y="@(road_1_start[1])@\" hdg="0.0" length="100.0">
+            <geometry s="0.0000000000000000e+00" x="@(road_1_start[0])@\" y="@(road_1_start[1])@\" hdg="0.0" length="@(road_1_length)@\">
                 <line/>
             </geometry>
         </planView>
@@ -287,12 +293,12 @@ if crosswalk or stopline:
             </laneSection>
         </lanes>
     </road>
-    <road name="Road 2" length="100.0" id="2" junction="-1">
+    <road name="Road 2" length="@(road_2_length)@\" id="2" junction="-1">
         <link>
             <successor elementType="junction" elementId="2"/>
         </link>
         <planView>
-            <geometry s="0.0000000000000000e+00" x="@(road_2_start[0])@\" y="@(road_2_start[1])@\" hdg="@(-m.pi/2.)@\" length="100.0">
+            <geometry s="0.0000000000000000e+00" x="@(road_2_start[0])@\" y="@(road_2_start[1])@\" hdg="@(-m.pi/2.)@\" length="@(road_2_length)@\">
                 <line/>
             </geometry>
         </planView>
@@ -334,12 +340,12 @@ if crosswalk or stopline:
             </laneSection>
         </lanes>
     </road>
-    <road name="Road 3" length="100.0" id="3" junction="-1">
+    <road name="Road 3" length="@(road_3_length)@\" id="3" junction="-1">
         <link>
             <successor elementType="junction" elementId="2"/>
         </link>
         <planView>
-            <geometry s="0.0000000000000000e+00" x="@(road_3_start[0])@\" y="@(road_3_start[1])@\" hdg="@(-m.pi)@\" length="100.0">
+            <geometry s="0.0000000000000000e+00" x="@(road_3_start[0])@\" y="@(road_3_start[1])@\" hdg="@(-m.pi)@\" length="@(road_3_length)@\">
                 <line/>
             </geometry>
         </planView>
@@ -381,12 +387,12 @@ if crosswalk or stopline:
             </laneSection>
         </lanes>
     </road>
-    <road name="Road 4" length="100.0" id="4" junction="-1">
+    <road name="Road 4" length="@(road_4_length)@\" id="4" junction="-1">
         <link>
             <successor elementType="junction" elementId="2"/>
         </link>
         <planView>
-            <geometry s="0.0000000000000000e+00" x="@(road_4_start[0])@\" y="@(road_4_start[1])@\" hdg="@(m.pi/2.)@\" length="100.0">
+            <geometry s="0.0000000000000000e+00" x="@(road_4_start[0])@\" y="@(road_4_start[1])@\" hdg="@(m.pi/2.)@\" length="@(road_4_length)@\">
                 <line/>
             </geometry>
         </planView>
@@ -912,7 +918,7 @@ Generated GeoJSON can be verified using: https://geojson.io
         "HasOncomingTraffic": true
       },
       "type": "Feature"
-    }@[if crosswalk],
+    }@[if (not crosswalk and stopline)],@[end if]@[if crosswalk],
     {
       "geometry": {
         "coordinates": [
