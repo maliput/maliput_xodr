@@ -34,5 +34,8 @@ empy3 ${script_dir}/../templates/t_intersection.xml.em > ${script_dir}/../resour
 # Generates curved_road resources
 empy3 ${script_dir}/../templates/curved_road.xml.em > ${script_dir}/../resources/curved_road/curved_road_default.xodr
 
+# Generates curved_connected_roads resources
+empy3 ${script_dir}/../templates/curved_connected_roads.xml.em > ${script_dir}/../resources/curved_connected_roads/curved_connected_roads_default.xodr
+
 # Generates dedicated_turn_lane_going_south
 WIDTH=3.3 STOPLINE=True RADIUS=6.0 empy3 ${script_dir}/../templates/dedicated_turn_lane_going_south.xml.em > ${script_dir}/../resources/dedicated_turn_lane_going_south/dedicated_turn_lane_going_south.xodr
