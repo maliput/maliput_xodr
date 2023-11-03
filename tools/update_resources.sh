@@ -17,6 +17,10 @@ LENGTH=200 WIDTH=3 CROSSWALK=True STOPLINE=True STOPLINE_DISTANCE=7 empy3 ${scri
 LENGTH=200 WIDTH=3.5 CROSSWALK=True STOPLINE=True STOPLINE_DISTANCE=7 empy3 ${script_dir}/../templates/straight_forward.xml.em > ${script_dir}/../resources/straight_forward/straight_forward_200m_3_5m_width_crosswalk_stopline.xodr
 LENGTH=200 WIDTH=4. CROSSWALK=True STOPLINE=True STOPLINE_DISTANCE=7 empy3 ${script_dir}/../templates/straight_forward.xml.em > ${script_dir}/../resources/straight_forward/straight_forward_200m_4m_width_crosswalk_stopline.xodr
 
+LENGTH=600 WIDTH=3 CROSSWALK=True STOPLINE=True STOPLINE_DISTANCE=7 empy3 ${script_dir}/../templates/straight_forward.xml.em > ${script_dir}/../resources/straight_forward/straight_forward_600m_3m_width_crosswalk_stopline.xodr
+LENGTH=600 WIDTH=3.5 CROSSWALK=True STOPLINE=True STOPLINE_DISTANCE=7 empy3 ${script_dir}/../templates/straight_forward.xml.em > ${script_dir}/../resources/straight_forward/straight_forward_600m_3_5m_width_crosswalk_stopline.xodr
+LENGTH=600 WIDTH=4 CROSSWALK=True STOPLINE=True STOPLINE_DISTANCE=7 empy3 ${script_dir}/../templates/straight_forward.xml.em > ${script_dir}/../resources/straight_forward/straight_forward_600m_4m_width_crosswalk_stopline.xodr
+
 # Generates intersection resources
 WIDTH=3 CROSSWALK=True CROSSWALK_LENGTH=2 RADIUS=8 empy3 ${script_dir}/../templates/intersection.xml.em > ${script_dir}/../resources/intersection/intersection_3m_width_crosswalk.xodr
 WIDTH=3.5 CROSSWALK=True CROSSWALK_LENGTH=2 RADIUS=8 empy3 ${script_dir}/../templates/intersection.xml.em > ${script_dir}/../resources/intersection/intersection_3_5m_width_crosswalk.xodr
