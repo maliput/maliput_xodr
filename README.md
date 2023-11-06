@@ -119,7 +119,7 @@ Options:
  - `Y_OFFSET`: Y offset with respect to the origin.
 
 ```sh
-EXIT_ROAD_LENGTH=20 MIDDLE_ROAD_LENGTH=20 RADIUS=12 empy3 templates/curved_road.xml.em > generated_file.xodr
+EXIT_ROAD_LENGTH=20 MIDDLE_ROAD_LENGTH=20 RADIUS=12 empy3 templates/curved_connected_roads.xml.em > generated_file.xodr
 ```
 
 ### Dedicated turn lane going South
