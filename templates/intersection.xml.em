@@ -235,6 +235,8 @@ if crosswalk or stopline:
     - Indicates if crosswalks are generated
   - CROSSWALK_LENGTH: @(crosswalk_length)@ 
     - Indicates the length of the crosswalks
+  - EXTENSIONS_LENGTH: @(extensions_length)@ 
+    - Indicates the length of the lead-in and lead-out roads.
   - STOPLINE: @(stopline)@ 
     - Indicates if stoplines are generated(for east west directions only)(it only affects geoJSON info)
   - OFFSET_X: @(x_offset)@ 
