@@ -1,0 +1,630 @@
+{
+  "_comment": "Features of type 'hasOncomingTraffic' are temporary hints and ignored by Maliput.",
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [0, 0],
+        "type": "Point",
+        "_comment": "Dummy point to make GeoJSON valid. Not used by maliput."
+      },
+      "properties": {
+        "Id": "9_0_1",
+        "Type": "Lane",
+        "HasOncomingTraffic": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [0, 0],
+        "type": "Point",
+        "_comment": "Dummy point to make GeoJSON valid. Not used by maliput."
+      },
+      "properties": {
+        "Id": "8_0_1",
+        "Type": "Lane",
+        "HasOncomingTraffic": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [0, 0],
+        "type": "Point",
+        "_comment": "Dummy point to make GeoJSON valid. Not used by maliput."
+      },
+      "properties": {
+        "Id": "7_0_-1",
+        "Type": "Lane",
+        "HasOncomingTraffic": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [0, 0],
+        "type": "Point",
+        "_comment": "Dummy point to make GeoJSON valid. Not used by maliput."
+      },
+      "properties": {
+        "Id": "10_0_-1",
+        "Type": "Lane",
+        "HasOncomingTraffic": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -122.09966026348552,
+              37.416898581992356,
+              0.0
+            ],
+            [
+              -122.09966026592139,
+              37.41684452086252,
+              0.0
+            ],
+            [
+              -122.0996376731314,
+              37.41684223132479,
+              0.0
+            ],
+            [
+              -122.09963767047162,
+              37.41690087023048,
+              0.0
+            ],
+            [
+              -122.09966026348552,
+              37.416898581992356,
+              0.0
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "{46c1b716-c704-427b-b57d-afe4fab608df}",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -122.09943433427492,
+              37.41690086418805,
+              0.0
+            ],
+            [
+              -122.09943433709324,
+              37.41684222528237,
+              0.0
+            ],
+            [
+              -122.09941174408942,
+              37.41684451347735,
+              0.0
+            ],
+            [
+              -122.09941174147488,
+              37.41689857460716,
+              0.0
+            ],
+            [
+              -122.09943433427492,
+              37.41690086418805,
+              0.0
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "{56c1b716-c704-427b-b57d-afe4fab608df}",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -122.09950210971566,
+              37.41697065885877,
+              0.0
+            ],
+            [
+              -122.09956988851079,
+              37.41697066087292,
+              0.0
+            ],
+            [
+              -122.09957275902231,
+              37.41695264058101,
+              0.0
+            ],
+            [
+              -122.09949924088762,
+              37.416952638396296,
+              0.0
+            ],
+            [
+              -122.09950210971566,
+              37.41697065885877,
+              0.0
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "{66c1b716-c704-427b-b57d-afe4fab608df}",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -122.09949924854253,
+              37.416790455006876,
+              0.0
+            ],
+            [
+              -122.09957276651866,
+              37.41679045719156,
+              0.0
+            ],
+            [
+              -122.09956989768058,
+              37.41677243673027,
+              0.0
+            ],
+            [
+              -122.0995021190641,
+              37.41677243471614,
+              0.0
+            ],
+            [
+              -122.09949924854253,
+              37.416790455006876,
+              0.0
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "{76c1b716-c704-427b-b57d-afe4fab608df}",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [0, 0],
+        "type": "Point",
+        "_comment": "Dummy point to make GeoJSON valid. Not used by maliput."
+      },
+      "properties": {
+        "Id": "19_0_1",
+        "Type": "Lane",
+        "HasOncomingTraffic": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [0, 0],
+        "type": "Point",
+        "_comment": "Dummy point to make GeoJSON valid. Not used by maliput."
+      },
+      "properties": {
+        "Id": "18_0_1",
+        "Type": "Lane",
+        "HasOncomingTraffic": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [0, 0],
+        "type": "Point",
+        "_comment": "Dummy point to make GeoJSON valid. Not used by maliput."
+      },
+      "properties": {
+        "Id": "17_0_-1",
+        "Type": "Lane",
+        "HasOncomingTraffic": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [0, 0],
+        "type": "Point",
+        "_comment": "Dummy point to make GeoJSON valid. Not used by maliput."
+      },
+      "properties": {
+        "Id": "20_0_-1",
+        "Type": "Lane",
+        "HasOncomingTraffic": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -122.09175274436637,
+              37.41690259596393,
+              0.0
+            ],
+            [
+              -122.09175275383932,
+              37.41683952464692,
+              0.0
+            ],
+            [
+              -122.09173016129186,
+              37.41683723359808,
+              0.0
+            ],
+            [
+              -122.09173015111107,
+              37.41690488269088,
+              0.0
+            ],
+            [
+              -122.09175274436637,
+              37.41690259596393,
+              0.0
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "{46c1b716-c704-427b-b57d-afe4fab608df}",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -122.09151551845143,
+              37.41690486194661,
+              0.0
+            ],
+            [
+              -122.09151552882528,
+              37.41683721285387,
+              0.0
+            ],
+            [
+              -122.09149293558241,
+              37.416839499535506,
+              0.0
+            ],
+            [
+              -122.09149292589159,
+              37.416902570852464,
+              0.0
+            ],
+            [
+              -122.09151551845143,
+              37.41690486194661,
+              0.0
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "{56c1b716-c704-427b-b57d-afe4fab608df}",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -122.09158328654634,
+              37.41697466115592,
+              0.0
+            ],
+            [
+              -122.0916623618101,
+              37.416974668798574,
+              0.0
+            ],
+            [
+              -122.09166523421631,
+              37.416956648698935,
+              0.0
+            ],
+            [
+              -122.0915804196155,
+              37.4169566405016,
+              0.0
+            ],
+            [
+              -122.09158328654634,
+              37.41697466115592,
+              0.0
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "{66c1b716-c704-427b-b57d-afe4fab608df}",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -122.09158044571993,
+              37.41678544692695,
+              0.0
+            ],
+            [
+              -122.0916652601277,
+              37.416785455124256,
+              0.0
+            ],
+            [
+              -122.09166239318444,
+              37.41676743447133,
+              0.0
+            ],
+            [
+              -122.09158331813853,
+              37.416767426828734,
+              0.0
+            ],
+            [
+              -122.09158044571993,
+              37.41678544692695,
+              0.0
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "{76c1b716-c704-427b-b57d-afe4fab608df}",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [0, 0],
+        "type": "Point",
+        "_comment": "Dummy point to make GeoJSON valid. Not used by maliput."
+      },
+      "properties": {
+        "Id": "29_0_1",
+        "Type": "Lane",
+        "HasOncomingTraffic": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [0, 0],
+        "type": "Point",
+        "_comment": "Dummy point to make GeoJSON valid. Not used by maliput."
+      },
+      "properties": {
+        "Id": "28_0_1",
+        "Type": "Lane",
+        "HasOncomingTraffic": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [0, 0],
+        "type": "Point",
+        "_comment": "Dummy point to make GeoJSON valid. Not used by maliput."
+      },
+      "properties": {
+        "Id": "27_0_-1",
+        "Type": "Lane",
+        "HasOncomingTraffic": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [0, 0],
+        "type": "Point",
+        "_comment": "Dummy point to make GeoJSON valid. Not used by maliput."
+      },
+      "properties": {
+        "Id": "30_0_-1",
+        "Type": "Lane",
+        "HasOncomingTraffic": true
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -122.08384522459515,
+              37.416906081034114,
+              0.0
+            ],
+            [
+              -122.0838452429997,
+              37.4168339995316,
+              0.0
+            ],
+            [
+              -122.0838226506954,
+              37.4168317069717,
+              0.0
+            ],
+            [
+              -122.08382263109898,
+              37.416908366249814,
+              0.0
+            ],
+            [
+              -122.08384522459515,
+              37.416906081034114,
+              0.0
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "{46c1b716-c704-427b-b57d-afe4fab608df}",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -122.08359670198153,
+              37.41690832929149,
+              0.0
+            ],
+            [
+              -122.08359672180822,
+              37.41683167001347,
+              0.0
+            ],
+            [
+              -122.08357412832686,
+              37.41683395518172,
+              0.0
+            ],
+            [
+              -122.0835741096625,
+              37.41690603668413,
+              0.0
+            ],
+            [
+              -122.08359670198153,
+              37.41690832929149,
+              0.0
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "{56c1b716-c704-427b-b57d-afe4fab608df}",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -122.08366446272882,
+              37.416978133038086,
+              0.0
+            ],
+            [
+              -122.08375483445967,
+              37.41697814782145,
+              0.0
+            ],
+            [
+              -122.08375770876049,
+              37.416960127914436,
+              0.0
+            ],
+            [
+              -122.08366159769527,
+              37.416960112192214,
+              0.0
+            ],
+            [
+              -122.08366446272882,
+              37.416978133038086,
+              0.0
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "{66c1b716-c704-427b-b57d-afe4fab608df}",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -122.08366164414653,
+              37.416779908436126,
+              0.0
+            ],
+            [
+              -122.08375775498148,
+              37.416779924158256,
+              0.0
+            ],
+            [
+              -122.08375488993312,
+              37.41676190331405,
+              0.0
+            ],
+            [
+              -122.08366451846211,
+              37.416761888530786,
+              0.0
+            ],
+            [
+              -122.08366164414653,
+              37.416779908436126,
+              0.0
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+          "Id": "{76c1b716-c704-427b-b57d-afe4fab608df}",
+          "Type": "Crosswalk"
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}
