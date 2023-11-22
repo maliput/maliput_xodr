@@ -15,7 +15,7 @@ pip install -r requirements.txt
 ```
 
 
-### Straight Forward
+### Straight Road
 Description:
  - Variable-length road (e.g 200m).
  - Two lanes with opposite direction.
@@ -23,9 +23,9 @@ Description:
     - A crosswalk in the middle
     - Stop lines before the crosswalk.
 
-<img src="docs/straight_forward.png" width=500>
+<img src="docs/straight_road.png" width=500>
 
-<img src="docs/straight_forward_stop_lines.png" width=500>
+<img src="docs/straight_road_stop_lines.png" width=500>
 
 Options:
  - `LENGTH`: Length of the road(default=`500m`).
@@ -40,11 +40,11 @@ Options:
 For generating a XODR file by using this template simply execute:
 
 ```sh
-CROSSWALK=True WIDTH=4 empy3 templates/straight_forward.xml.em > generated_file.xodr
+CROSSWALK=True WIDTH=4 empy3 templates/straight_road.xml.em > generated_file.xodr
 ```
 
 ```sh
-CROSSWALK=True STOPLINE=True LENGTH=200 WIDTH=4 empy3 templates/straight_forward.xml.em > generated_file.xodr
+CROSSWALK=True STOPLINE=True LENGTH=200 WIDTH=4 empy3 templates/straight_road.xml.em > generated_file.xodr
 ```
 
 ### Intersection
