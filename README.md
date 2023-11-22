@@ -106,6 +106,24 @@ Options:
 LENGTH_STRAIGHT=25 RADIUS=15 GAP=5 empy3 templates/curved_road.xml.em > generated_file.xodr
 ```
 
+### Curved Connected Roads
+Description:
+ - 2 curved roads connected by a straight road.
+
+<img src="docs/curved_connected_roads.png" width=500>
+
+Options:
+ - `WIDTH`: Width of the lanes(default 3.5m).
+ - `RADIUS`: Radius of the curved section(default 12m).
+ - `EXIT_ROAD_LENGTH`: Indicates the length of the straight section of the streets of the extremes(default 300m).
+ - `MIDDLE_ROAD_LENGTH`: Indicates the length of the straight middle road(default 300m).
+ - `X_OFFSET`: X offset with respect to the origin.
+ - `Y_OFFSET`: Y offset with respect to the origin.
+
+```sh
+EXIT_ROAD_LENGTH=20 MIDDLE_ROAD_LENGTH=20 RADIUS=12 empy3 templates/curved_connected_roads.xml.em > generated_file.xodr
+```
+
 ### Dedicated turn lane going South
 Description:
  - Represents a T intersection with lanes going South to North, North to South, and West to North.
