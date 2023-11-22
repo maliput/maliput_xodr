@@ -42,6 +42,8 @@ ${script_dir}/extract_geojson_info.sh ${script_dir}/../resources/intersection/in
 
 WIDTH=3.3 CROSSWALK=False STOPLINE=True RADIUS=6 empy3 ${script_dir}/../templates/intersection.xml.em > ${script_dir}/../resources/intersection/intersection_3_3m_width_6m_radius_stopline.xodr
 ${script_dir}/extract_geojson_info.sh ${script_dir}/../resources/intersection/intersection_3_3m_width_6m_radius_stopline.xodr
+WIDTH=3.3 CROSSWALK=False STOPLINE=True RADIUS=6 EXTENSIONS_LENGTH=300 empy3 ${script_dir}/../templates/intersection.xml.em > ${script_dir}/../resources/intersection/intersection_3_3m_width_6m_radius_300m_approach_stopline.xodr
+${script_dir}/extract_geojson_info.sh ${script_dir}/../resources/intersection/intersection_3_3m_width_6m_radius_300m_approach_stopline.xodr
 
 # Generates t_intersection resources
 empy3 ${script_dir}/../templates/t_intersection.xml.em > ${script_dir}/../resources/t_intersection/t_intersection_default.xodr

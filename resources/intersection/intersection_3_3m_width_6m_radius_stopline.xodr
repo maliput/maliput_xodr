@@ -639,7 +639,7 @@ Generated GeoJSON can be verified using: https://geojson.io
         "HasOncomingTraffic": true
       },
       "type": "Feature"
-    }
+    },
     {
       "geometry": {
         "coordinates": [
