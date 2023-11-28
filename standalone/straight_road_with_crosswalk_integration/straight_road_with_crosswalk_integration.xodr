@@ -576,7 +576,7 @@
     <road name="Road 11" length="4.0" id="11" junction="10">
         <link>
             <predecessor elementType="road" elementId="9" contactPoint="end"/>
-            <successor elementType="road" elementId="11" contactPoint="start"/>
+            <successor elementType="road" elementId="10" contactPoint="start"/>
         </link>
         <planView>
             <geometry s="0.0000000000000000e+00" x="298.0" y="20.0" hdg="0.0" length="4.0">
