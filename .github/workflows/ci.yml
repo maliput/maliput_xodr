@@ -1,0 +1,57 @@
+name: Map Generation CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+# Cancel previously running PR jobs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  Map:
+    name: Verify Map Generation
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:20.04
+    steps:
+    - name: Install prereqs
+      run: |
+        apt-get update
+        apt-get install -y git python3-pip python3-empy
+    - name: Extract branch name
+      shell: bash
+      run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+      id: extract_branch
+    - name: Clone repo and checkout branch
+      run: |
+        git clone -b ${{ steps.extract_branch.outputs.branch }} https://github.com/maliput/maliput_xodr.git .
+    - name: Git setup
+      run: |
+        git config --global --add safe.directory /__w/maliput_xodr/maliput_xodr
+    - name: Install requirements
+      run: |
+        pip3 install -r requirements.txt
+    - name: Generate maps
+      run: |
+        bash tools/update_resources.sh
+    - name: Output git status
+      run: |
+        git status
+    - name: Check for changes
+      id: check_for_changes
+      run: |
+        if ! git diff-index --quiet HEAD; then echo "changes_exist=true" >> $GITHUB_OUTPUT ; fi
+    - name: Debug changes
+      if: steps.check_for_changes.outputs.changes_exist == 'true'
+      run: |
+        git diff
+    - name: Report changes
+      if: steps.check_for_changes.outputs.changes_exist == 'true'
+      run: |
+        echo "Changes detected in map generation. Please run tools/update_resources.sh and commit the changes."
+        exit 1
