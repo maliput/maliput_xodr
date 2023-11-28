@@ -15,7 +15,7 @@ pip install -r requirements.txt
 ```
 
 
-### Straight Forward
+### Straight Road
 Description:
  - Variable-length road (e.g 200m).
  - Two lanes with opposite direction.
@@ -23,9 +23,9 @@ Description:
     - A crosswalk in the middle
     - Stop lines before the crosswalk.
 
-<img src="docs/straight_forward.png" width=500>
+<img src="docs/straight_road.png" width=500>
 
-<img src="docs/straight_forward_stop_lines.png" width=500>
+<img src="docs/straight_road_stop_lines.png" width=500>
 
 Options:
  - `LENGTH`: Length of the road(default=`500m`).
@@ -40,11 +40,11 @@ Options:
 For generating a XODR file by using this template simply execute:
 
 ```sh
-CROSSWALK=True WIDTH=4 empy3 templates/straight_forward.xml.em > generated_file.xodr
+CROSSWALK=True WIDTH=4 empy3 templates/straight_road.xml.em > generated_file.xodr
 ```
 
 ```sh
-CROSSWALK=True STOPLINE=True LENGTH=200 WIDTH=4 empy3 templates/straight_forward.xml.em > generated_file.xodr
+CROSSWALK=True STOPLINE=True LENGTH=200 WIDTH=4 empy3 templates/straight_road.xml.em > generated_file.xodr
 ```
 
 ### Intersection
@@ -58,6 +58,8 @@ Options:
  - `RADIUS`: Radius of the junction's border(default 8m).
  - `CROSSWALK`: Adds a crosswalk in each of the four sides of the intersection.(default=`False`)
  - `CROSSWALK_LENGTH`: Length of the crosswalk to be added if enabled.(default 2m)
+ - `STOPLINE`: Indicates if stoplines are generated(for east west directions only)(it only affects geoJSON info).(default=`False`)
+ - `EXTENSIONS_LENGTH`: Indicates the length of the lead-in and lead-out roads(default 100m).
  - `X_OFFSET`: X offset with respect to the origin.
  - `Y_OFFSET`: Y offset with respect to the origin.
 
@@ -102,6 +104,24 @@ Options:
 
 ```sh
 LENGTH_STRAIGHT=25 RADIUS=15 GAP=5 empy3 templates/curved_road.xml.em > generated_file.xodr
+```
+
+### Curved Connected Roads
+Description:
+ - 2 curved roads connected by a straight road.
+
+<img src="docs/curved_connected_roads.png" width=500>
+
+Options:
+ - `WIDTH`: Width of the lanes(default 3.5m).
+ - `RADIUS`: Radius of the curved section(default 12m).
+ - `EXIT_ROAD_LENGTH`: Indicates the length of the straight section of the streets of the extremes(default 300m).
+ - `MIDDLE_ROAD_LENGTH`: Indicates the length of the straight middle road(default 300m).
+ - `X_OFFSET`: X offset with respect to the origin.
+ - `Y_OFFSET`: Y offset with respect to the origin.
+
+```sh
+EXIT_ROAD_LENGTH=20 MIDDLE_ROAD_LENGTH=20 RADIUS=12 empy3 templates/curved_connected_roads.xml.em > generated_file.xodr
 ```
 
 ### Dedicated turn lane going South
