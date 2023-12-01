@@ -397,6 +397,8 @@ if stopline:
                 <left>
                     <lane id="1" type="driving" level= "0">
                         <link>
+                            <predecessor id="1"/>
+                            <successor id="1"/>
                         </link>
                         <width sOffset="0.0e+00" a="@(width)@\" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
@@ -535,16 +537,13 @@ if stopline:
         <connection id="0" incomingRoad="1" connectingRoad="2" contactPoint="start">
             <laneLink from="1" to="1"/>
         </connection>
-        <connection id="1" incomingRoad="4" connectingRoad="5" contactPoint="end">
-            <laneLink from="-1" to="1"/>
-        </connection>
-        <connection id="2" incomingRoad="4" connectingRoad="6" contactPoint="start">
+        <connection id="1" incomingRoad="4" connectingRoad="6" contactPoint="start">
             <laneLink from="1" to="1"/>
         </connection>
-        <connection id="3" incomingRoad="3" connectingRoad="7" contactPoint="start">
+        <connection id="2" incomingRoad="3" connectingRoad="7" contactPoint="start">
             <laneLink from="-2" to="1"/>
         </connection>
-        <connection id="4" incomingRoad="3" connectingRoad="9" contactPoint="start">
+        <connection id="3" incomingRoad="3" connectingRoad="9" contactPoint="start">
             <laneLink from="-1" to="1"/>
         </connection>
     </junction>
