@@ -101,23 +101,25 @@ width = str2float(os.environ['WIDTH']) if 'WIDTH' in os.environ  else 3.3
 radius = str2float(os.environ['RADIUS']) if 'RADIUS' in os.environ else 6.0
 # stopline
 stopline = str2bool(os.environ['STOPLINE']) if 'STOPLINE' in os.environ else True
+# Lead-in & lead-out length
+extensions_length = str2float(os.environ['EXTENSIONS_LENGTH']) if 'EXTENSIONS_LENGTH' in os.environ  else 100.
 
 road_1_start = [0. + x_offset, 0. + y_offset, m.pi / 2.]
-road_1_length = 100.
+road_1_length = extensions_length
 
 road_2_start = [road_1_start[0], road_1_start[1] + road_1_length, m.pi / 2.]
 road_2_length = 2. * width + 2. * radius
 
 road_3_start = [road_2_start[0], road_2_start[1] + road_2_length, m.pi / 2.]
-road_3_length = 100.
+road_3_length = extensions_length
 
 road_7_start = [road_3_start[0] + width, road_3_start[1], -m.pi / 2.]
 road_7_length = 2. * width + 2. * radius
 
 road_8_start = [road_7_start[0], road_7_start[1] - road_7_length, -m.pi / 2.]
-road_8_length = 100.
+road_8_length = extensions_length
 
-road_4_length = 100.
+road_4_length = extensions_length
 road_4_start = [road_1_start[0] - width - radius - road_4_length, road_1_start[1] + road_1_length + radius + width, 0.]
 
 road_5_start = road_2_start
@@ -148,13 +150,15 @@ if stopline:
     - Indicates the radius of the intersection
   - STOPLINE: @(stopline)@ 
     - Indicates if stoplines are generated(for east west directions only)(it only affects geoJSON info)
+  - EXTENSIONS_LENGTH: @(extensions_length)@ 
+    - Indicates the length of the lead-in and lead-out roads.
   - OFFSET_X: @(x_offset)@ 
     - Indicates the offset in the x axis of the openDRIVE map
   - OFFSET_Y: @(y_offset)@ 
     - Indicates the offset in the y axis of the openDRIVE map
 -->
 <OpenDRIVE>
-    <header revMajor="1" revMinor="1" name="DedicatedTurnLaneGoingSouth" version="1.00" date="Tue Sep 5 12:00:00 2023" north="0.0e+00" south="0.0e+00" east="0.0e+00" west="0.0e+00" maxRoad="2" maxJunc="0" maxPrg="0">
+    <header revMajor="1" revMinor="1" name="DedicatedSouthboundRightTurnLane" version="1.00" date="Tue Sep 5 12:00:00 2023" north="0.0e+00" south="0.0e+00" east="0.0e+00" west="0.0e+00" maxRoad="2" maxJunc="0" maxPrg="0">
         <geoReference><![CDATA[+proj=tmerc +lat_0=@(LAT_0)@  +lon_0=@(LON_0)@  +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +vunits=m +no_defs ]]></geoReference>
     </header>
     <road name="Road 1" length="@(road_1_length)@\" id="1" junction="-1">
@@ -393,6 +397,8 @@ if stopline:
                 <left>
                     <lane id="1" type="driving" level= "0">
                         <link>
+                            <predecessor id="1"/>
+                            <successor id="1"/>
                         </link>
                         <width sOffset="0.0e+00" a="@(width)@\" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
@@ -531,16 +537,13 @@ if stopline:
         <connection id="0" incomingRoad="1" connectingRoad="2" contactPoint="start">
             <laneLink from="1" to="1"/>
         </connection>
-        <connection id="1" incomingRoad="4" connectingRoad="5" contactPoint="end">
-            <laneLink from="-1" to="1"/>
-        </connection>
-        <connection id="2" incomingRoad="4" connectingRoad="6" contactPoint="start">
+        <connection id="1" incomingRoad="4" connectingRoad="6" contactPoint="start">
             <laneLink from="1" to="1"/>
         </connection>
-        <connection id="3" incomingRoad="3" connectingRoad="7" contactPoint="start">
+        <connection id="2" incomingRoad="3" connectingRoad="7" contactPoint="start">
             <laneLink from="-2" to="1"/>
         </connection>
-        <connection id="4" incomingRoad="3" connectingRoad="9" contactPoint="start">
+        <connection id="3" incomingRoad="3" connectingRoad="9" contactPoint="start">
             <laneLink from="-1" to="1"/>
         </connection>
     </junction>

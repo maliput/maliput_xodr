@@ -131,7 +131,7 @@ Description:
  - A stop line is added in the West side of the West-East corridor.
 
 
-<img src="docs/dedicated_turn_lane_going_south.png" width=500>
+<img src="docs/dedicated_southbound_right_turn_lane.png" width=500>
 
 Options:
  - `WIDTH`: Width of the lanes (default 3.3m).
@@ -139,10 +139,11 @@ Options:
  - `STOPLINE`: A boolean indicating whether to add the GeoJson stoplines (default True).
  - `X_OFFSET`: X offset with respect to the origin (default 0m).
  - `Y_OFFSET`: Y offset with respect to the origin (default 0m).
+ - `EXTENSIONS_LENGTH`: Indicates the length of the lead-in and lead-out roads(default 100m).
 
 
 ```sh
-WIDTH=3.3 STOPLINE=True RADIUS=6.0 empy3 templates/dedicated_turn_lane_going_south.xml.em > generated_file.xodr
+WIDTH=3.3 STOPLINE=True RADIUS=6.0 empy3 templates/dedicated_southbound_right_turn_lane.xml.em > generated_file.xodr
 ```
 
 ## Resources
