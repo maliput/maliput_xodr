@@ -148,19 +148,20 @@ WIDTH=3.3 STOPLINE=True RADIUS=6.0 empy3 templates/dedicated_southbound_right_tu
 
 ### Circle
 Description:
- - Represents a circle(or roundabout) with a certain `RADIUS` and lane `WIDTH`.
+ - Represents a circle(or roundabout) with a certain `RADIUS`, lane `INNER_WIDTH`, and lane `OUTER_WIDTH`.
 
 <img src="docs/circle.png" width=500>
 
 Options:
- - `WIDTH`: Width of the lanes (default 3.5m).
+ - `INNER_WIDTH`: Width of the lanes (default 4.3m).
+ - `OUTER_WIDTH`: Width of the lanes (default 5.3m).
  - `RADIUS`: Radius of the circle (default 6.5m).
  - `X_OFFSET`: X offset with respect to the origin (default 0m).
  - `Y_OFFSET`: Y offset with respect to the origin (default 0m).
 
 
 ```sh
-WIDTH=3.5 RADIUS=6.5 empy3 templates/circle.xml.em > generated_file.xodr
+INNER_WIDTH=4.3 OUTER_WIDTH=5.3 RADIUS=6.5 empy3 templates/circle.xml.em > generated_file.xodr
 ```
 
 ## Resources
