@@ -153,14 +153,15 @@ Description:
 <img src="docs/circle.png" width=500>
 
 Options:
- - `WIDTH`: Width of the lanes (default 3.5m).
+ - `INNER_LANE_WIDTH`: Width of the lanes (default 4.3m).
+ - `OUTER_LANE_WIDTH`: Width of the lanes (default 5.3m).
  - `RADIUS`: Radius of the circle (default 6.5m).
  - `X_OFFSET`: X offset with respect to the origin (default 0m).
  - `Y_OFFSET`: Y offset with respect to the origin (default 0m).
 
 
 ```sh
-WIDTH=3.5 RADIUS=6.5 empy3 templates/circle.xml.em > generated_file.xodr
+INNER_LANE_WIDTH=4.3 OUTER_LANE_WIDTH=5.3 RADIUS=6.5 empy3 templates/circle.xml.em > generated_file.xodr
 ```
 
 ## Resources
