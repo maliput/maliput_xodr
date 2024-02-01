@@ -66,4 +66,4 @@ ${script_dir}/extract_geojson_info.sh ${script_dir}/../resources/dedicated_south
 empy3 ${script_dir}/../templates/curved_connected_roads.xml.em > ${script_dir}/../resources/curved_connected_roads/curved_connected_roads_default.xodr
 
 # Generates circle resources
-empy3 ${script_dir}/../templates/circle.xml.em > ${script_dir}/../resources/circle/circle_6_5m_inner_radius_two_3_5_m_lanes.xodr
+empy3 ${script_dir}/../templates/circle.xml.em > ${script_dir}/../resources/circle/circle_6_5m_inner_radius_4_3m_inner_lane_5_3m_outer_lane.xodr
