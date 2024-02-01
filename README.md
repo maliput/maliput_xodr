@@ -146,6 +146,24 @@ Options:
 WIDTH=3.3 STOPLINE=True RADIUS=6.0 empy3 templates/dedicated_southbound_right_turn_lane.xml.em > generated_file.xodr
 ```
 
+### Circle
+Description:
+ - Represents a circle(or roundabout) with a certain `RADIUS` and lane `WIDTH`.
+
+<img src="docs/circle.png" width=500>
+
+Options:
+ - `INNER_LANE_WIDTH`: Width of the lanes (default 4.3m).
+ - `OUTER_LANE_WIDTH`: Width of the lanes (default 5.3m).
+ - `RADIUS`: Radius of the circle (default 6.5m).
+ - `X_OFFSET`: X offset with respect to the origin (default 0m).
+ - `Y_OFFSET`: Y offset with respect to the origin (default 0m).
+
+
+```sh
+INNER_LANE_WIDTH=4.3 OUTER_LANE_WIDTH=5.3 RADIUS=6.5 empy3 templates/circle.xml.em > generated_file.xodr
+```
+
 ## Resources
 
 Example files with different values are provided under the `resources` folder.
