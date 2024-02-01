@@ -146,14 +146,15 @@ Options:
 WIDTH=3.3 STOPLINE=True RADIUS=6.0 empy3 templates/dedicated_southbound_right_turn_lane.xml.em > generated_file.xodr
 ```
 
-### Cross with turn lanes going North and South
+### Dual opposing dedicated right turn lanes
+
 Description:
  - Represents a cross with lanes going South to North (2), North to South (1), and West to East (1) and East to West (1).
  - At the junction, the middle lane of the North-South road has a right turn to incorporate into the West to East corridor.
  - Two stop lines are added in opposing corners of the West-East corridor.
 
 
-<img src="docs/dedicated_turn_lanes_going_north_and_south.png" width=500>
+<img src="docs/dual_opposing_dedicated_right_turn_lanes.png" width=500>
 
 Options:
  - `WIDTH`: Width of the lanes (default 4m).
@@ -164,7 +165,7 @@ Options:
 
 
 ```sh
-WIDTH=4.0 STOPLINE=True RADIUS=6.0 empy3 templates/dedicated_turn_lanes_going_north_and_south.xml.em > generated_file.xodr
+WIDTH=4.0 STOPLINE=True RADIUS=6.0 empy3 templates/dual_opposing_dedicated_right_turn_lanes.xml.em > generated_file.xodr
 ```
 
 
