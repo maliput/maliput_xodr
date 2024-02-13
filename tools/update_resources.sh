@@ -67,3 +67,4 @@ empy3 ${script_dir}/../templates/curved_connected_roads.xml.em > ${script_dir}/.
 
 # Generates bus stop resources
 empy3 ${script_dir}/../templates/bus_stop.xml.em > ${script_dir}/../resources/bus_stop/bus_stop_default.xodr
+${script_dir}/extract_geojson_info.sh ${script_dir}/../resources/bus_stop/bus_stop_default.xodr

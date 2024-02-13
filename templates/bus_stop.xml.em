@@ -89,7 +89,7 @@ def to_lon_lat_points(points):
 width = str2float(os.environ['WIDTH']) if 'WIDTH' in os.environ  else 4.0
 bus_stop_length = str2float(os.environ['BUS_STOP_LENGTH']) if 'BUS_STOP_LENGTH' in os.environ  else 15.
 merge_length = str2float(os.environ['MERGE_LENGTH']) if 'MERGE_LENGTH' in os.environ  else 10.
-extensions_length = str2float(os.environ['EXTENSIONS_LENGTH']) if 'EXTENSIONS_LENGTH' in os.environ  else 30.
+extensions_length = str2float(os.environ['EXTENSIONS_LENGTH']) if 'EXTENSIONS_LENGTH' in os.environ  else 300.
 x_offset = str2float(os.environ['X_OFFSET']) if 'X_OFFSET' in os.environ  else 0.0
 y_offset = str2float(os.environ['Y_OFFSET']) if 'Y_OFFSET' in os.environ  else 0.0
 

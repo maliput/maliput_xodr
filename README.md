@@ -156,11 +156,11 @@ Description:
 
 Options:
  - `WIDTH`: Width of the lanes(default 4m).
- - `EXTENSIONS_LENGTH`: Length of the outer lane sections(default 30m).
  - `BUS_STOP_LENGTH`: Length of the bus stop lane(default 15m).
  - `MERGE_LENGTH`: Length of the merge lane connecting to the bust stop lane (10m).
  - `X_OFFSET`: X offset with respect to the origin.
  - `Y_OFFSET`: Y offset with respect to the origin.
+ - `EXTENSIONS_LENGTH`: Length of the outer lane sections(default 300m).
 
 For generating a XODR file by using this template simply execute:
 
