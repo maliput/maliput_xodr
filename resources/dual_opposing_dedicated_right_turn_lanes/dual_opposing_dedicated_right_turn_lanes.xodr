@@ -42,17 +42,19 @@
     - Indicates the offset in the x axis of the openDRIVE map
   - OFFSET_Y: 0.0
     - Indicates the offset in the y axis of the openDRIVE map
+  - EXTENSIONS_LENGTH: 300.0
+    - Indicates the length of the lead-in and lead-out roads.
 -->
 <OpenDRIVE>
     <header revMajor="1" revMinor="1" name="DualOpposingDedicatedRightTurnLanes" version="1.00" date="Tue Aug 29 12:00:00 2023" north="0.0e+00" south="0.0e+00" east="0.0e+00" west="0.0e+00" maxRoad="2" maxJunc="0" maxPrg="0">
         <geoReference><![CDATA[+proj=tmerc +lat_0=37.4168716 +lon_0=-122.1030492 +k=1 +x_0=0 +y_0=0 +datum=WGS84 +units=m +vunits=m +no_defs ]]></geoReference>
     </header>
-    <road name="Road 1" length="100.0" id="1" junction="-1">
+    <road name="Road 1" length="300.0" id="1" junction="-1">
         <link>
             <successor elementType="junction" elementId="11"/>
         </link>
         <planView>
-            <geometry s="0.0e+00" x="0.0" y="0.0" hdg="1.5707963267948966" length="100.0">
+            <geometry s="0.0e+00" x="0.0" y="0.0" hdg="1.5707963267948966" length="300.0">
                 <line/>
             </geometry>
         </planView>
@@ -109,7 +111,7 @@
             <successor elementType="road" elementId="5" contactPoint="start"/>
         </link>
         <planView>
-            <geometry s="0.0e+00" x="4.0" y="100.0" hdg="1.5707963267948966" length="20.0">
+            <geometry s="0.0e+00" x="4.0" y="300.0" hdg="1.5707963267948966" length="20.0">
                 <line/>
             </geometry>
         </planView>
@@ -147,7 +149,7 @@
             <successor elementType="road" elementId="5" contactPoint="start"/>
         </link>
         <planView>
-            <geometry s="0.0e+00" x="-4.0" y="100.0" hdg="1.5707963267948966" length="20.0">
+            <geometry s="0.0e+00" x="-4.0" y="300.0" hdg="1.5707963267948966" length="20.0">
                 <line/>
             </geometry>
         </planView>
@@ -185,7 +187,7 @@
             <successor elementType="road" elementId="5" contactPoint="start"/>
         </link>
         <planView>
-            <geometry s="0.0e+00" x="-14.0" y="106.0" hdg="0.0" length="21.991148575128552">
+            <geometry s="0.0e+00" x="-14.0" y="306.0" hdg="0.0" length="21.991148575128552">
                 <arc curvature="0.07142857142857142"/>
             </geometry>
         </planView>
@@ -218,12 +220,12 @@
             </laneSection>
         </lanes>
     </road>
-    <road name="Road 5" length="100.0" id="5" junction="-1">
+    <road name="Road 5" length="300.0" id="5" junction="-1">
         <link>
             <predecessor elementType="junction" elementId="11"/>
         </link>
         <planView>
-            <geometry s="0.0e+00" x="0.0" y="120.0" hdg="1.5707963267948966" length="100.0">
+            <geometry s="0.0e+00" x="0.0" y="320.0" hdg="1.5707963267948966" length="300.0">
                 <line/>
             </geometry>
         </planView>
@@ -274,12 +276,12 @@
             </laneSection>
         </lanes>
     </road>
-    <road name="Road 6" length="100.0" id="6" junction="-1">
+    <road name="Road 6" length="300.0" id="6" junction="-1">
         <link>
             <successor elementType="junction" elementId="11"/>
         </link>
         <planView>
-            <geometry s="0.0e+00" x="-114.0" y="110.0" hdg="0.0" length="100.0">
+            <geometry s="0.0e+00" x="-314.0" y="310.0" hdg="0.0" length="300.0">
                 <line/>
             </geometry>
         </planView>
@@ -327,7 +329,7 @@
             <successor elementType="road" elementId="8" contactPoint="start"/>
         </link>
         <planView>
-            <geometry s="0.0e+00" x="-14.0" y="110.0" hdg="0.0" length="24.0">
+            <geometry s="0.0e+00" x="-14.0" y="310.0" hdg="0.0" length="24.0">
                 <line/>
             </geometry>
         </planView>
@@ -371,12 +373,12 @@
             </laneSection>
         </lanes>
     </road>
-    <road name="Road 8" length="100.0" id="8" junction="-1">
+    <road name="Road 8" length="300.0" id="8" junction="-1">
         <link>
             <predecessor elementType="junction" elementId="11"/>
         </link>
         <planView>
-            <geometry s="0.0e+00" x="10.0" y="110.0" hdg="0.0" length="100.0">
+            <geometry s="0.0e+00" x="10.0" y="310.0" hdg="0.0" length="300.0">
                 <line/>
             </geometry>
         </planView>
@@ -424,7 +426,7 @@
             <successor elementType="road" elementId="8" contactPoint="start"/>
         </link>
         <planView>
-            <geometry s="0.0e+00" x="0.0" y="100.0" hdg="1.5707963267948966" length="15.707963267948966">
+            <geometry s="0.0e+00" x="0.0" y="300.0" hdg="1.5707963267948966" length="15.707963267948966">
                 <arc curvature="-0.1"/>
             </geometry>
         </planView>
@@ -463,7 +465,7 @@
             <successor elementType="road" elementId="1" contactPoint="end"/>
         </link>
         <planView>
-            <geometry s="0.0e+00" x="-14.0" y="106.0" hdg="0.0" length="9.42477796076938">
+            <geometry s="0.0e+00" x="-14.0" y="306.0" hdg="0.0" length="9.42477796076938">
                 <arc curvature="-0.16666666666666666"/>
             </geometry>
         </planView>
@@ -502,7 +504,7 @@
             <successor elementType="road" elementId="5" contactPoint="start"/>
         </link>
         <planView>
-            <geometry s="0.0e+00" x="10.0" y="114.0" hdg="-3.141592653589793" length="9.42477796076938">
+            <geometry s="0.0e+00" x="10.0" y="314.0" hdg="-3.141592653589793" length="9.42477796076938">
                 <arc curvature="-0.16666666666666666"/>
             </geometry>
         </planView>
@@ -572,13 +574,13 @@ Generated GeoJSON can be verified using: https://geojson.io
       "geometry": {
         "coordinates": [
             [
-            -122.10320735247385,
-            37.41789876127313,
+            -122.1032073562634,
+            37.41970079834768,
             0.0
           ],
             [
-            -122.10320735239807,
-            37.417862720526,
+            -122.1032073561876,
+            37.41966475761157,
             0.0
           ]
           ],
@@ -594,13 +596,13 @@ Generated GeoJSON can be verified using: https://geojson.io
       "geometry": {
         "coordinates": [
             [
-            -122.1029362340555,
-            37.4178266798305,
+            -122.10293623134874,
+            37.41962871692708,
             0.0
           ],
             [
-            -122.10293623400139,
-            37.417862720577816,
+            -122.10293623129459,
+            37.4196647576634,
             0.0
           ]
           ],

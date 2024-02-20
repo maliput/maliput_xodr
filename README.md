@@ -162,6 +162,7 @@ Options:
  - `STOPLINE`: A boolean indicating whether to add the GeoJson stoplines (default True).
  - `X_OFFSET`: X offset with respect to the origin (default 0m).
  - `Y_OFFSET`: Y offset with respect to the origin (default 0m).
+ - `EXTENSIONS_LENGTH`: Indicates the length of the lead-in and lead-out roads(default 100m).
 
 
 ```sh

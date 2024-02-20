@@ -99,9 +99,11 @@ width = str2float(os.environ['WIDTH']) if 'WIDTH' in os.environ  else 4.0
 radius = str2float(os.environ['RADIUS']) if 'RADIUS' in os.environ else 6.0
 # stopline
 stopline = str2bool(os.environ['STOPLINE']) if 'STOPLINE' in os.environ else True
+# Lead-in & lead-out length
+extensions_length = str2float(os.environ['EXTENSIONS_LENGTH']) if 'EXTENSIONS_LENGTH' in os.environ  else 100.
 
 road_1_start = [0. + x_offset, 0. + y_offset, m.pi / 2.]
-road_1_length = 100.
+road_1_length = extensions_length
 road_1_end = [road_1_start[0], road_1_start[1] + road_1_length, m.pi / 2.]
 
 road_2_start = [road_1_start[0] + width, road_1_end[1], m.pi / 2.]
@@ -111,9 +113,9 @@ road_3_start = [road_1_start[0] - width, road_1_end[1], m.pi / 2.]
 road_3_length = road_2_length
 
 road_5_start = [road_1_end[0], road_1_end[1] + road_2_length, m.pi / 2.]
-road_5_length = 100.
+road_5_length = extensions_length
 
-road_6_length = 100.
+road_6_length = extensions_length
 road_6_start = [road_1_start[0] - 2 * width - road_6_length - radius, road_1_end[1] + radius + width, 0.]
 road_6_end = [road_6_start[0] + road_6_length, road_6_start[1], 0.]
 
@@ -125,7 +127,7 @@ road_7_start = [road_6_start[0] + road_6_length, road_6_start[1], 0.]
 road_7_length = 3. * width + 2 * radius
 
 road_8_start = [road_7_start[0] + road_7_length , road_7_start[1], 0.]
-road_8_length = 100.
+road_8_length = extensions_length
 
 road_9_start = [road_1_start[0], road_1_end[1], m.pi / 2.]
 road_9_curvature = -1. / (radius + width)
@@ -164,6 +166,8 @@ if stopline:
     - Indicates the offset in the x axis of the openDRIVE map
   - OFFSET_Y: @(y_offset)@ 
     - Indicates the offset in the y axis of the openDRIVE map
+  - EXTENSIONS_LENGTH: @(extensions_length)@ 
+    - Indicates the length of the lead-in and lead-out roads.
 -->
 <OpenDRIVE>
     <header revMajor="1" revMinor="1" name="DualOpposingDedicatedRightTurnLanes" version="1.00" date="Tue Aug 29 12:00:00 2023" north="0.0e+00" south="0.0e+00" east="0.0e+00" west="0.0e+00" maxRoad="2" maxJunc="0" maxPrg="0">
