@@ -107,6 +107,9 @@ road_1_end = [road_1_start[0], road_1_start[1] + road_1_length, m.pi / 2.]
 road_2_start = [road_1_start[0] + width, road_1_end[1], m.pi / 2.]
 road_2_length = 2. * width + 2. * radius
 
+road_3_start = [road_1_start[0] - width, road_1_end[1], m.pi / 2.]
+road_3_length = road_2_length
+
 road_5_start = [road_1_end[0], road_1_end[1] + road_2_length, m.pi / 2.]
 road_5_length = 100.
 
@@ -229,6 +232,44 @@ if stopline:
                     <lane id="1" type="driving" level= "0">
                         <link>
                             <successor id="-1"/>
+                        </link>
+                        <width sOffset="0.0e+00" a="@(width)@\" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
+                        <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
+                        <userData>
+                            <vectorLane travelDir="forward"/>
+                        </userData>
+                    </lane>
+                </left>
+                <center>
+                    <lane id="0" type="none" level= "0">
+                        <link>
+                        </link>
+                        <roadMark sOffset="0.0e+00" type="broken" weight="standard" color="standard" width="1.0e-01"/>
+                    </lane>
+                </center>
+            </laneSection>
+        </lanes>
+    </road>
+    <road name="Road 3" length="@(road_3_length)@\" id="3" junction="10">
+        <link>
+            <predecessor elementType="road" elementId="1" contactPoint="end"/>
+            <successor elementType="road" elementId="5" contactPoint="start"/>
+        </link>
+        <planView>
+            <geometry s="0.0e+00" x="@(road_3_start[0])@\" y="@(road_3_start[1])@\" hdg="@(road_3_start[2])@\" length="@(road_3_length)@\">
+                <line/>
+            </geometry>
+        </planView>
+        <elevationProfile>
+        </elevationProfile>
+        <lateralProfile>
+        </lateralProfile>
+        <lanes>
+            <laneSection s="0.0e+00">
+                <left>
+                    <lane id="1" type="driving" level= "0">
+                        <link>
+                            <successor id="1"/>
                         </link>
                         <width sOffset="0.0e+00" a="@(width)@\" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
@@ -489,6 +530,9 @@ if stopline:
     <junction id="10" name="Junction 10">
         <connection id="0" incomingRoad="1" connectingRoad="2" contactPoint="start">
             <laneLink from="-1" to="1"/>
+        </connection>
+        <connection id="1" incomingRoad="1" connectingRoad="3" contactPoint="start">
+            <laneLink from="1" to="1"/>
         </connection>
         <connection id="3" incomingRoad="6" connectingRoad="7" contactPoint="start">
             <laneLink from="1" to="1"/>
