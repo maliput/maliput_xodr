@@ -102,15 +102,16 @@ stopline = str2bool(os.environ['STOPLINE']) if 'STOPLINE' in os.environ else Tru
 
 road_1_start = [0. + x_offset, 0. + y_offset, m.pi / 2.]
 road_1_length = 100.
+road_1_end = [road_1_start[0], road_1_start[1] + road_1_length, m.pi / 2.]
 
-road_2_start = [road_1_start[0], road_1_start[1] + road_1_length, m.pi / 2.]
+road_2_start = [road_1_start[0] + width, road_1_end[1], m.pi / 2.]
 road_2_length = 2. * width + 2. * radius
 
-road_5_start = [road_2_start[0], road_2_start[1] + road_2_length, m.pi / 2.]
+road_5_start = [road_1_end[0], road_1_end[1] + road_2_length, m.pi / 2.]
 road_5_length = 100.
 
 road_6_length = 100.
-road_6_start = [road_1_start[0] - 2 * width - road_6_length, road_1_start[1] + road_1_length + radius + width, 0.]
+road_6_start = [road_1_start[0] - 2 * width - road_6_length, road_1_end[1] + radius + width, 0.]
 
 road_7_start = [road_6_start[0] + road_6_length, road_6_start[1], 0.]
 road_7_length = 3. * width + radius
@@ -118,7 +119,7 @@ road_7_length = 3. * width + radius
 road_8_start = [road_7_start[0] + road_7_length, road_7_start[1], 0.]
 road_8_length = 100.
 
-road_9_start = [road_1_start[0], road_1_start[1] + road_1_length, m.pi / 2.]
+road_9_start = [road_1_start[0], road_1_end[1], m.pi / 2.]
 road_9_curvature = -1. / (radius + width)
 road_9_length = arc_length(radius + width, m.pi / 2.)
 
@@ -225,19 +226,9 @@ if stopline:
         <lanes>
             <laneSection s="0.0e+00">
                 <left>
-                    <lane id="2" type="driving" level= "0">
-                        <link>
-                            <successor id="2"/>
-                        </link>
-                        <width sOffset="0.0e+00" a="@(width)@\" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
-                        <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
-                        <userData>
-                            <vectorLane travelDir="forward"/>
-                        </userData>
-                    </lane>
                     <lane id="1" type="driving" level= "0">
                         <link>
-                            <successor id="1"/>
+                            <successor id="-1"/>
                         </link>
                         <width sOffset="0.0e+00" a="@(width)@\" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
                         <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
@@ -253,18 +244,6 @@ if stopline:
                         <roadMark sOffset="0.0e+00" type="broken" weight="standard" color="standard" width="1.0e-01"/>
                     </lane>
                 </center>
-                <right>
-                    <lane id="-1" type="driving" level= "0">
-                        <link>
-                            <successor id="-1"/>
-                        </link>
-                        <width sOffset="0.0e+00" a="@(width)@\" b="0.0e+00" c="0.0e+00" d="0.0e+00"/>
-                        <roadMark sOffset="0.0e+00" type="solid" weight="standard" color="standard" width="1.0e-01"/>
-                        <userData>
-                            <vectorLane travelDir="backward"/>
-                        </userData>
-                    </lane>
-                </right>
             </laneSection>
         </lanes>
     </road>
@@ -509,9 +488,7 @@ if stopline:
     </road>
     <junction id="10" name="Junction 10">
         <connection id="0" incomingRoad="1" connectingRoad="2" contactPoint="start">
-            <laneLink from="2" to="2"/>
-            <laneLink from="1" to="1"/>
-            <laneLink from="-1" to="-1"/>
+            <laneLink from="-1" to="1"/>
         </connection>
         <connection id="3" incomingRoad="6" connectingRoad="7" contactPoint="start">
             <laneLink from="1" to="1"/>
