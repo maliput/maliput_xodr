@@ -64,3 +64,7 @@ ${script_dir}/extract_geojson_info.sh ${script_dir}/../resources/dedicated_south
 
 # Generates curved_connected_roads resources
 empy3 ${script_dir}/../templates/curved_connected_roads.xml.em > ${script_dir}/../resources/curved_connected_roads/curved_connected_roads_default.xodr
+
+# Generates dual_opposing_dedicated_right_turn_lanes resources
+EXTENSIONS_LENGTH=300 WIDTH=4.0 STOPLINE=True RADIUS=6.0 empy3 ${script_dir}/../templates/dual_opposing_dedicated_right_turn_lanes.xml.em > ${script_dir}/../resources/dual_opposing_dedicated_right_turn_lanes/dual_opposing_dedicated_right_turn_lanes.xodr
+${script_dir}/extract_geojson_info.sh ${script_dir}/../resources/dual_opposing_dedicated_right_turn_lanes/dual_opposing_dedicated_right_turn_lanes.xodr
