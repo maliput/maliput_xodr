@@ -146,6 +146,30 @@ Options:
 WIDTH=3.3 STOPLINE=True RADIUS=6.0 empy3 templates/dedicated_southbound_right_turn_lane.xml.em > generated_file.xodr
 ```
 
+### Dual opposing dedicated right turn lanes
+
+Description:
+ - Represents a cross with lanes going South to North (2), North to South (1), and West to East (1) and East to West (1).
+ - At the junction, the middle lane of the North-South road has a right turn to incorporate into the West to East corridor.
+ - Two stop lines are added in opposing corners of the West-East corridor.
+
+
+<img src="docs/dual_opposing_dedicated_right_turn_lanes.png" width=500>
+
+Options:
+ - `WIDTH`: Width of the lanes (default 4m).
+ - `RADIUS`: Radius of the curved section (default 6m).
+ - `STOPLINE`: A boolean indicating whether to add the GeoJson stoplines (default True).
+ - `X_OFFSET`: X offset with respect to the origin (default 0m).
+ - `Y_OFFSET`: Y offset with respect to the origin (default 0m).
+ - `EXTENSIONS_LENGTH`: Indicates the length of the lead-in and lead-out roads(default 100m).
+
+
+```sh
+WIDTH=4.0 STOPLINE=True RADIUS=6.0 empy3 templates/dual_opposing_dedicated_right_turn_lanes.xml.em > generated_file.xodr
+```
+
+
 ## Resources
 
 Example files with different values are provided under the `resources` folder.
